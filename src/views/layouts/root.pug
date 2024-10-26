@@ -1,3 +1,5 @@
+include ../../components/header
+
 doctype html
 html(lang="ru")
   head
@@ -5,11 +7,10 @@ html(lang="ru")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="styles.min.css")
     script(src="main.min.js" defer) 
-    title Document
-  body 
+    title Депо
+  body
     div(class="flex flex-col min-h-svh")
-      block header
-        header header123
+      +header
       block content
         main content
       block footer

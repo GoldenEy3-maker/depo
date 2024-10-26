@@ -1,5 +1,13 @@
-@import "utils"
+@use "utils"
 
 @tailwind base
 @tailwind components
 @tailwind utilities
+
+@layer base
+  body
+    @apply bg-background text-text-background
+
+@layer utilities
+  .container
+    @apply ~px-[1rem]/[3rem] max-w-[118.75rem] w-full mx-auto
