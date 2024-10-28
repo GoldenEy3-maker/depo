@@ -104,7 +104,7 @@ function views() {
           key: "v",
           to: ["js", "css"],
         },
-      })
+      }),
     )
     .pipe(gulp.dest(paths.views.dest))
     .pipe(browserSync.stream());
@@ -140,7 +140,7 @@ function styles() {
         outputStyle: "compressed",
         silenceDeprecations: ["legacy-js-api"],
         includePaths: ["node_modules"],
-      }).on("error", sass.logError)
+      }).on("error", sass.logError),
     )
     .pipe(
       postcss([
@@ -148,7 +148,7 @@ function styles() {
         autoprefixer(),
         cssnano(),
         cssImport(),
-      ])
+      ]),
     )
     .pipe(rename({ basename: "styles", extname: ".css", suffix: ".min" }))
     .pipe(gulp.dest(paths.styles.dest))
@@ -218,5 +218,8 @@ function images() {
 gulp.task("default", watch);
 gulp.task(
   "build",
-  gulp.series(clean, gulp.parallel(views, scripts, styles, webp, images, fonts))
+  gulp.series(
+    clean,
+    gulp.parallel(views, scripts, styles, webp, images, fonts),
+  ),
 );
