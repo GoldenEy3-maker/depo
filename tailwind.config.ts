@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 import fluid, { extract, screens, fontSize } from "fluid-tailwind";
 
 function useColsSystem() {
@@ -36,6 +37,9 @@ export default {
     screens,
     fontSize,
     extend: {
+      fontFamily: {
+        sans: ["Montserrat", ...fontFamily.sans],
+      },
       colors: {
         background: "#FFFFFF",
         brend: {
