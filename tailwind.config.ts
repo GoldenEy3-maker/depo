@@ -35,10 +35,18 @@ export default {
   },
   theme: {
     screens,
-    fontSize,
+    fontSize: {
+      ...fontSize,
+      xl: ["1.25rem", "1.3"],
+      sm: ["0.875rem", "1.3"],
+    },
     extend: {
       fontFamily: {
         sans: ["Montserrat", ...fontFamily.sans],
+      },
+      fontSize: {
+        title: ["5rem", "1.3"],
+        h2: ["2.25rem", "1.2"],
       },
       colors: {
         background: "#FFFFFF",
@@ -69,6 +77,22 @@ export default {
       },
       width: {
         ...useColsSystem(),
+      },
+      keyframes: {
+        floatingImage: {
+          "0%": {
+            transform: "translate(0px,0)",
+          },
+          "50%": {
+            transform: "translate(-10%,0)",
+          },
+          "100%": {
+            transform: "translate(0,0)",
+          },
+        },
+      },
+      animation: {
+        floatingImage: "floatingImage 40s linear infinite",
       },
     },
   },

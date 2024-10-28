@@ -1,0 +1,104 @@
+include ./button
+
+mixin projects-slider
+  section(class="col-span-full grid min-h-[calc(100svh-5rem)] grid-cols-subgrid")
+    div(
+      class="swiper relative col-[span_17] grid grid-cols-subgrid overflow-hidden bg-muted [&>*]:row-start-1",
+      data-projects-slider=""
+    )
+      div(class="swiper-wrapper col-span-full row-start-1 flex h-full")
+        div(
+          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
+        ) 
+          img(
+            class="animate-floatingImage absolute inset-0 h-full w-[120%] max-w-none",
+            src="assets/img/house-1.webp",
+            alt=""
+          )
+          h1(class="relative z-10 col-[2/22] text-title uppercase") Дом
+            |
+            br
+            | на кленова
+          p(class="relative z-10 col-[2/16] mt-2 pb-[8.375rem] text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
+        div(
+          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
+        ) 
+          img(
+            class="animate-floatingImage absolute inset-0 h-full w-[120%] max-w-none",
+            src="assets/img/house-2.webp",
+            alt=""
+          )
+          h1(class="relative z-10 col-[2/22] text-title uppercase") Дом
+            |
+            br
+            | на кленова
+          p(class="relative z-10 col-[2/16] mt-2 pb-[8.375rem] text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
+        div(
+          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
+        ) 
+          img(
+            class="animate-floatingImage absolute inset-0 h-full w-[120%] max-w-none",
+            src="assets/img/house-3.webp",
+            alt=""
+          )
+          h1(class="relative z-10 col-[2/22] text-title uppercase") Дом
+            |
+            br
+            | на кленова
+          p(class="relative z-10 col-[2/16] mt-2 pb-[8.375rem] text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
+      div(
+        class="z-10 col-span-full row-start-1 flex items-center justify-between gap-x-4 self-end"
+      )
+        +button-as-link("default", "lg")(href="#") Выбрать квартиру
+        div(class="flex items-center")
+          +button("default", "icon-lg")(type="button", class="swiper-button-prev")
+            svg(
+              width="16",
+              height="26",
+              viewBox="0 0 16 26",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg"
+            )
+              path(
+                d="M9.53674e-07 10.4591V15.5409L16 26V21.0955L3.28572 13L16 4.90455V0L9.53674e-07 10.4591Z",
+                fill="#E4E6EF"
+              )
+          +button("default", "icon-lg")(
+            type="button",
+            class="swiper-button-next"
+          )
+            svg(
+              width="16",
+              height="26",
+              viewBox="0 0 16 26",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg"
+            )
+              path(
+                d="M16 10.4591V15.5409L0 26V21.0955L12.7143 13L0 4.90455V0L16 10.4591Z",
+                fill="currentColor"
+              )
+    div(
+      class="col-span-9 grid auto-rows-max grid-cols-subgrid grid-rows-[auto_auto_auto_1fr] bg-muted-foreground py-[3.25rem]"
+    )
+      span(class="col-span-2 col-start-2")
+        svg(
+          width="112",
+          height="134",
+          viewBox="0 0 112 134",
+          fill="none",
+          xmlns="http://www.w3.org/2000/svg"
+        )
+          g(clip-path="url(#clip0_168_109)")
+          path(
+            d="M80.9693 133.968V55.2632H55.2277V133.968H47.003V134H29.1544H16.32H0V129.971H16.32V59.1956L16.3038 59.1876L54.702 18.413L54.6454 10.2017L5.86324 59.2037H2.02181L54.6211 6.36599V6.33375H54.6454L54.6696 6.31764L54.6858 6.33375H66.0807L72.0491 0H75.7935L67.6577 8.63035L67.6011 45.7626L54.8961 45.7384L54.7343 22.3615L29.1544 49.5177V129.971H42.3852V51.2341H45.6847H55.2277H80.9693H92.6877H94.014V129.971H112V134H81.3656V133.968H80.9693Z",
+            fill="#1D1D1B"
+          )
+          defs
+            clipPath#clip0_168_109
+              rect(width="112", height="134", fill="white")
+      h2(class="text-h2 col-[2/span_7] mt-8 text-brend") Застройщик с&nbsp;заботой о&nbsp;людях
+      p(class="col-[2/span_7] mt-2 text-sm text-brend") Проверенные архитектурные решения в&nbsp;строительстве более 5&nbsp;лет
+      footer(class="col-[2/span_7] space-y-2 self-end text-sm text-brend")
+        p СЗ Депо. ©
+        p Дома. Единство. Простор. Открытость.

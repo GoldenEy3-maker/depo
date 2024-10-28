@@ -54,6 +54,7 @@ const paths = {
   styles: {
     src: "./src/styles/globals.{css,sass,scss}",
     watch: "./src/**/*.{css,sass,scss}",
+    tailwindConfig: "./tailwind.config.ts",
     dest: "./dist/",
   },
   webp: {
@@ -97,6 +98,7 @@ function watch() {
 
   gulp.watch(paths.views.watch, gulp.parallel(views, styles));
   gulp.watch(paths.styles.watch, styles);
+  gulp.watch(paths.styles.tailwindConfig, styles);
   gulp.watch(paths.scripts.watch, gulp.parallel(scripts, styles));
   gulp.watch(paths.webp.watch, webp);
   gulp.watch(paths.images.watch, images);
