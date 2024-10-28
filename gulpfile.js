@@ -1,9 +1,13 @@
+import path from "node:path";
+import fs from "node:fs/promises";
+
 import gulp from "gulp";
 import { create as browserSyncCreate } from "browser-sync";
 import { deleteAsync } from "del";
 import versions from "gulp-version-number";
 import rename from "gulp-rename";
 import newer from "gulp-newer";
+import through from "through2";
 
 import pug from "gulp-pug";
 
@@ -66,6 +70,7 @@ const paths = {
     src: "./src/assets/fonts/**/*.ttf",
     watch: "./src/assets/fonts/**/*.ttf",
     dest: "./dist/assets/fonts/",
+    localImports: "./src/styles/fonts.sass",
   },
   assets: {
     src: "./src/assets/**/*",
@@ -80,6 +85,10 @@ function clean() {
   return deleteAsync("./dist/**", { force: true });
 }
 
+function cleanLocalFontImports() {
+  return deleteAsync(paths.fonts.localImports, { force: true });
+}
+
 function watch() {
   browserSync.init({
     server: "./dist",
@@ -90,7 +99,7 @@ function watch() {
   gulp.watch(paths.scripts.watch, gulp.parallel(scripts, styles));
   gulp.watch(paths.webp.watch, webp);
   gulp.watch(paths.images.watch, images);
-  gulp.watch(paths.fonts.watch, fonts);
+  gulp.watch(paths.fonts.watch, gulp.series(cleanLocalFontImports, fonts));
 }
 
 function views() {
@@ -155,9 +164,54 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
+const FontWeighMap = {
+  Black: "900",
+  ExtraBold: "800",
+  Bold: "700",
+  SemiBold: "600",
+  Medium: "500",
+  Regular: "400",
+  Light: "300",
+  ExtraLight: "200",
+  Thin: "100",
+};
+
+function getFontWeight(spec) {
+  for (const [key, weight] of Object.entries(FontWeighMap)) {
+    if (spec.toLowerCase().trim().includes(key.toLowerCase().trim()))
+      return weight;
+  }
+
+  return null;
+}
+
+function isFontItalic(spec) {
+  return spec.toLowerCase().trim().includes("italic");
+}
+
 function fonts() {
   return gulp
     .src(paths.fonts.src, { encoding: false, removeBOM: false })
+    .pipe(
+      through.obj(async (chunk, enc, cb) => {
+        const { name: filename } = path.parse(chunk.path);
+        const [fontName, fontSpec] = filename.split("-");
+        const weight = getFontWeight(fontSpec);
+        const isItalic = isFontItalic(fontSpec);
+
+        const data = `
+          @font-face
+            font-family: "${fontName}"
+            src: url("/assets/fonts/${filename}.woff2") format("woff2"), url("/assets/fonts/${filename}.woff") format("woff")
+            font-weight: ${weight ?? "normal"}
+            font-style: ${isItalic ? "italic" : "normal"}
+        `;
+
+        await fs.writeFile("./src/styles/fonts.sass", data, { flag: "a+" });
+
+        cb(null, chunk);
+      }),
+    )
     .pipe(newer(paths.fonts.dest))
     .pipe(ttf2woff())
     .pipe(gulp.dest(paths.fonts.dest))
@@ -220,6 +274,7 @@ gulp.task(
   "build",
   gulp.series(
     clean,
+    cleanLocalFontImports,
     gulp.parallel(views, scripts, styles, webp, images, fonts),
   ),
 );
