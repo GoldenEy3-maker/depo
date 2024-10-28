@@ -1,4 +1,4 @@
-@use "utils"
+@use "utils" as utils
 
 @tailwind base
 @tailwind components
@@ -9,5 +9,11 @@
     @apply bg-background text-text-background
 
 @layer utilities
-  .container
-    @apply ~px-[1rem]/[3rem] max-w-[118.75rem] w-full mx-auto
+  .main-container
+    display: grid
+    grid-template-columns: utils.calc-clamp(1rem, 3rem, 640, 1568) repeat(24, 1fr) utils.calc-clamp(1rem, 3rem, 640, 1568)
+
+  .max-container
+    width: 100%
+    max-width: 118.75rem
+    margin-inline: auto
