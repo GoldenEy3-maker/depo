@@ -1,6 +1,7 @@
 extends layouts/root.pug
+include ../components/projects-slider
 
 block content
   main(class="col-span-full grid grid-cols-subgrid")
-    section(class="col-[main] grid min-h-svh grid-cols-subgrid") section
+    +projects-slider
     section(class="col-[main] grid min-h-svh grid-cols-subgrid") section
