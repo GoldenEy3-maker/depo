@@ -278,6 +278,6 @@ gulp.task(
   gulp.series(
     clean,
     cleanLocalFontImports,
-    gulp.parallel(views, scripts, styles, webp, images, fonts),
+    gulp.parallel(views, scripts, webp, images, gulp.series(fonts, styles)),
   ),
 );

@@ -48,8 +48,10 @@ export default {
         sans: ["Montserrat", ...fontFamily.sans],
       },
       fontSize: {
-        title: ["5rem", "1.3"],
-        h2: ["2.25rem", "1.2"],
+        // 40px at 640px and 80px at 1536px
+        title: ["clamp(2.5rem, 0.7143rem + 4.4643vw, 5rem)", "1.3"],
+        // 24px at 640px and 36 at 1536px
+        h2: ["clamp(1.5rem, 0.9643rem + 1.3393vw, 2.25rem)", "1.2"],
       },
       colors: {
         background: "#FFFFFF",
@@ -99,5 +101,9 @@ export default {
       },
     },
   },
-  plugins: [fluid],
+  plugins: [
+    fluid({
+      checkSC144: false,
+    }),
+  ],
 } satisfies Config;
