@@ -50,7 +50,7 @@ export default {
       },
       colors: {
         background: "#FFFFFF",
-        brend: {
+        brand: {
           DEFAULT: "#002134",
         },
         primary: {
