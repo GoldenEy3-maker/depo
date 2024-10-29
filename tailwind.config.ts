@@ -41,6 +41,9 @@ export default {
       sm: ["0.875rem", "1.3"],
     },
     extend: {
+      screens: {
+        md2: "62rem",
+      },
       fontFamily: {
         sans: ["Montserrat", ...fontFamily.sans],
       },
