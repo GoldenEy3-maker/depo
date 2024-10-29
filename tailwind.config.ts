@@ -54,6 +54,8 @@ export default {
         h1: ["clamp(2rem, 1.2857rem + 1.7857vw, 3rem)", "1.2"],
         // 24px at 640px and 36px at 1536px
         h2: ["clamp(1.5rem, 0.9643rem + 1.3393vw, 2.25rem)", "1.2"],
+        // 20px at 640px and 32px at 1536px
+        h3: ["clamp(1.25rem, 0.7143rem + 1.3393vw, 2rem)", "1.2"],
         // 16 at 640px and 18px at 1536px
         basicL: ["clamp(1rem, 0.9107rem + 0.2232vw, 1.125rem)", "1.4"],
         basicS: ["0.875rem", "1.3"],
