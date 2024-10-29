@@ -5,7 +5,7 @@ mixin projects-slider
     class="col-span-full grid min-h-[min(calc(100svh-5rem),62rem)] grid-cols-subgrid"
   )
     div(
-      class="swiper md2:min-h-0 md2:col-[span_17] relative col-span-full grid min-h-[30rem] grid-cols-subgrid overflow-hidden bg-muted [&>*]:row-start-1",
+      class="swiper relative col-span-full grid min-h-[30rem] grid-cols-subgrid overflow-hidden bg-muted md2:col-[span_17] md2:min-h-0 [&>*]:row-start-1",
       data-projects-slider=""
     )
       div(class="swiper-wrapper col-span-full row-start-1 flex h-full")
@@ -14,7 +14,7 @@ mixin projects-slider
         ) 
           img(
             class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
-            src="assets/img/house-1.webp",
+            src="assets/img/house-2.webp",
             alt=""
           )
           h1(class="relative z-10 col-[2/-2] text-title uppercase sm:col-[2/22]") Дом
@@ -40,7 +40,7 @@ mixin projects-slider
         ) 
           img(
             class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
-            src="assets/img/house-3.webp",
+            src="assets/img/house-2.webp",
             alt=""
           )
           h1(class="relative z-10 col-[2/-2] text-title uppercase sm:col-[2/22]") Дом
@@ -84,7 +84,7 @@ mixin projects-slider
                 fill="currentColor"
               )
     div(
-      class="md2:col-span-9 md2:min-h-0 col-span-full grid min-h-[22.5rem] auto-rows-max grid-cols-subgrid grid-rows-[auto_auto_auto_1fr] bg-muted-foreground ~px-4/12 ~py-[2rem]/[3.25rem]"
+      class="col-span-full grid min-h-[22.5rem] auto-rows-max grid-cols-subgrid grid-rows-[auto_auto_auto_1fr] bg-muted-foreground ~px-4/12 ~py-[2rem]/[3.25rem] md2:col-span-9 md2:min-h-0"
     )
       span(class="col-span-2 ~h-[3.125rem]/[8.375rem]")
         svg(
@@ -103,13 +103,13 @@ mixin projects-slider
             clipPath#clip0_168_109
               rect(width="112", height="134", fill="white")
       h2(
-        class="text-brand md2:col-span-7 col-span-full row-start-2 text-h2 font-medium ~mt-6/8 sm:col-[span_18]"
+        class="col-span-full row-start-2 text-h2 font-medium text-brand ~mt-6/8 sm:col-[span_18] md2:col-span-7"
       ) Застройщик с&nbsp;заботой о&nbsp;людях
       p(
-        class="text-brand md2:col-span-6 text-basicS col-span-full row-start-3 mt-2 sm:col-[span_16]"
+        class="col-span-full row-start-3 mt-2 text-basicS text-brand sm:col-[span_16] md2:col-span-6"
       ) Проверенные архитектурные решения в&nbsp;строительстве более 5&nbsp;лет
       footer(
-        class="text-brand text-basicS col-span-full row-start-4 space-y-2 self-end pt-8"
+        class="col-span-full row-start-4 space-y-2 self-end pt-8 text-basicS text-brand"
       )
         p СЗ Депо. ©
         p Дома. Единство. Простор. Открытость.
