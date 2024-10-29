@@ -3,12 +3,12 @@ include ./button
 mixin projects-slider
   section(class="col-span-full grid min-h-[calc(100svh-5rem)] grid-cols-subgrid")
     div(
-      class="swiper relative col-[span_17] grid grid-cols-subgrid overflow-hidden bg-muted [&>*]:row-start-1",
+      class="swiper md2:min-h-0 md2:col-[span_17] relative col-span-full grid min-h-[40rem] grid-cols-subgrid overflow-hidden bg-muted [&>*]:row-start-1",
       data-projects-slider=""
     )
       div(class="swiper-wrapper col-span-full row-start-1 flex h-full")
         div(
-          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
+          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pb-[8.375rem] pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
         ) 
           img(
             class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
@@ -19,9 +19,9 @@ mixin projects-slider
             |
             br
             | на кленова
-          p(class="relative z-10 col-[2/16] mt-2 pb-[8.375rem] text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
+          p(class="relative z-10 col-[2/16] mt-2 text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
         div(
-          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
+          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pb-[8.375rem] pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
         ) 
           img(
             class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
@@ -32,9 +32,9 @@ mixin projects-slider
             |
             br
             | на кленова
-          p(class="relative z-10 col-[2/16] mt-2 pb-[8.375rem] text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
+          p(class="relative z-10 col-[2/16] mt-2 text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
         div(
-          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
+          class="swiper-slide main-container relative shrink-0 grow-0 basis-full overflow-hidden pb-[8.375rem] pt-[3.25rem] text-text-foreground after:absolute after:inset-0 after:bg-black/35 after:content-['']"
         ) 
           img(
             class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
@@ -45,7 +45,7 @@ mixin projects-slider
             |
             br
             | на кленова
-          p(class="relative z-10 col-[2/16] mt-2 pb-[8.375rem] text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
+          p(class="relative z-10 col-[2/16] mt-2 text-xl") Премиальные квартиры в&nbsp;историческом центре, с&nbsp;закрытым двором, парковкой и&nbsp;лапомойкой для детей
       div(
         class="z-10 col-span-full row-start-1 flex items-center justify-between gap-x-4 self-end"
       )
@@ -79,11 +79,11 @@ mixin projects-slider
                 fill="currentColor"
               )
     div(
-      class="col-span-9 grid auto-rows-max grid-cols-subgrid grid-rows-[auto_auto_auto_1fr] bg-muted-foreground py-[3.25rem]"
+      class="md2:col-span-9 col-span-full grid auto-rows-max grid-cols-subgrid grid-rows-[auto_auto_auto_1fr] bg-muted-foreground py-[3.25rem]"
     )
       span(class="col-span-2 col-start-2")
         svg(
-          width="112",
+          width="100%",
           height="134",
           viewBox="0 0 112 134",
           fill="none",
@@ -97,8 +97,10 @@ mixin projects-slider
           defs
             clipPath#clip0_168_109
               rect(width="112", height="134", fill="white")
-      h2(class="text-brand col-[2/span_7] mt-8 text-h2") Застройщик с&nbsp;заботой о&nbsp;людях
-      p(class="text-brand col-[2/span_7] mt-2 text-sm") Проверенные архитектурные решения в&nbsp;строительстве более 5&nbsp;лет
-      footer(class="text-brand col-[2/span_7] space-y-2 self-end text-sm")
+      h2(class="text-brand md2:col-[2/span_7] col-[2/span_18] mt-8 text-h2") Застройщик с&nbsp;заботой о&nbsp;людях
+      p(class="text-brand md2:col-[2/span_7] col-[2/span_16] mt-2 text-sm") Проверенные архитектурные решения в&nbsp;строительстве более 5&nbsp;лет
+      footer(
+        class="text-brand md2:col-[2/span_7] col-[2/-2] space-y-2 self-end pt-8 text-sm"
+      )
         p СЗ Депо. ©
         p Дома. Единство. Простор. Открытость.
