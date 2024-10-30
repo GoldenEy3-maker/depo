@@ -1,8 +1,10 @@
 extends layouts/root.pug
 include ../components/projects-slider
 include ../components/short-about
+include ../components/our-projects
 
 block content
   main(class="col-span-full grid grid-cols-subgrid")
     +projects-slider
     +short-about
+    +our-projects
