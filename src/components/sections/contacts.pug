@@ -20,4 +20,35 @@ mixin contacts
               d="M16 9.50002L6.96306 18.539L5.49323 17.0713L12.0265 10.538L-4.40481e-07 10.538L-3.49735e-07 8.46201L12.0265 8.462L5.49323 1.93083L6.96306 0.460998L11.4815 4.98051L16 9.50002Z",
               fill="currentColor"
             )
-    div(class="col-6 bg-muted-foreground")
+    div(
+      class="col-span-6 grid grid-cols-subgrid grid-rows-[auto_1fr_auto] bg-muted-foreground ~py-8/10"
+    )
+      h3(class="col-[main/-2] text-h3 text-brand") Дом на Кленова
+      ul(class="col-[main/-2] space-y-3 self-end pt-8")
+        li(class="flex flex-col items-start space-y-1")
+          p(class="text-basicL") ул. Кленова 123
+          span(class="text-muted") Адерс дома
+        li(class="flex flex-col items-start space-y-1")
+          p(class="text-basicL") ул. Профинтерна 10а
+          span(class="text-muted") Офис продаж
+        li(class="flex flex-col items-start space-y-1")
+          a(href="tel:+79000000000", class="text-basicL") +7 900 000 00 00
+          span(class="text-muted") Телефон
+      footer(class="col-[main/-2] ~pt-6/7")
+        +button-as-link("ghost")(href="#", class="h-auto !px-0")
+          span Смотреть о доме
+          span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
+            svg(
+              width="100%",
+              height="100%",
+              viewBox="0 0 16 19",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg"
+            )
+              path(
+                fill-rule="evenodd",
+                clip-rule="evenodd",
+                d="M16 9.50002L6.96306 18.539L5.49323 17.0713L12.0265 10.538L-4.40481e-07 10.538L-3.49735e-07 8.46201L12.0265 8.462L5.49323 1.93083L6.96306 0.460998L11.4815 4.98051L16 9.50002Z",
+                fill="currentColor"
+              )
+    #contacts-map(class="col-[7/-1] h-[37.5rem] bg-muted")
