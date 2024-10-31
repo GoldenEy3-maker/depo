@@ -1,8 +1,9 @@
 extends layouts/root.pug
-include ../components/projects-slider
-include ../components/short-about
-include ../components/our-projects
-include ../components/about
+include ../components/sections/projects-slider
+include ../components/sections/short-about
+include ../components/sections/our-projects
+include ../components/sections/about
+include ../components/sections/news
 
 block content
   main(class="col-span-full grid grid-cols-subgrid")
@@ -10,3 +11,4 @@ block content
     +short-about
     +our-projects
     +about
+    +news

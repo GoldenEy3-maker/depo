@@ -1,4 +1,4 @@
-include ./button
+include ../button
 
 mixin our-projects
   section(class="col-span-full grid grid-cols-subgrid")
@@ -8,10 +8,10 @@ mixin our-projects
       h2(class="text-h2 font-medium text-brand") Наши проекты
       +button-as-link("ghost")(href="#", class="h-auto !px-0")
         span Все проекты
-        span(class="ml-3")
+        span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
           svg(
-            width="16",
-            height="19",
+            width="100%",
+            height="100%",
             viewBox="0 0 16 19",
             fill="none",
             xmlns="http://www.w3.org/2000/svg"
