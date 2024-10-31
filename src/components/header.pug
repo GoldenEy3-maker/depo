@@ -3,7 +3,10 @@ mixin header
     class="sticky top-0 z-50 col-span-full grid grid-cols-subgrid bg-background py-4"
   )
     div(class="col-[main] grid grid-cols-subgrid items-center")
-      a(href="/", class="col-span-2")
+      a(
+        href="/",
+        class="col-span-2 focus:outline-none focus-visible:ring focus-visible:ring-primary"
+      )
         svg(
           width="100%",
           height="48",
@@ -29,7 +32,7 @@ mixin header
           )
       button(
         type="button",
-        class="md2:hidden col-start-[13]",
+        class="col-start-[13] focus:outline-none focus-visible:ring focus-visible:ring-primary md2:hidden",
         data-modal-trigger="burger"
       )
         svg(
@@ -52,15 +55,33 @@ mixin header
                 transform="translate(0.5)"
               )
       nav(
-        class="md2:flex md2:col-[span_14/span_14] md2:col-start-5 col-[span_18/span_18] hidden items-center gap-x-6"
+        class="col-[span_18/span_18] hidden items-center gap-x-6 md2:col-[span_14/span_14] md2:col-start-5 md2:flex"
       )
-        a(href="#") Проекты
-        a(href="#") Квартиры
-        a(href="#") О застройщике
-        a(href="#") Медиа
-        a(href="#") Контакты
+        a(
+          href="#",
+          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) Проекты
+        a(
+          href="#",
+          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) Квартиры
+        a(
+          href="#",
+          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) О застройщике
+        a(
+          href="#",
+          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) Медиа
+        a(
+          href="#",
+          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) Контакты
       div(class="-col-start-1 text-right lg:col-span-5 lg:col-start-[20]")
-        a(href="tel:+78000000000", class="text-lg text-secondary") 
+        a(
+          href="tel:+78000000000",
+          class="text-lg text-secondary focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) 
           span(class="max-lg:hidden") +7 800 000 00 00
           span(class="lg:hidden")
             svg(
