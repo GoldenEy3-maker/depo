@@ -1,7 +1,9 @@
+import { SelectorsMap } from "./constants";
+
 function validateFormSubmit(event: SubmitEvent) {
   const controls = (
     event.currentTarget as HTMLFormElement
-  ).querySelectorAll<HTMLDivElement>("[data-form-control]");
+  ).querySelectorAll<HTMLDivElement>(SelectorsMap.FormControl);
 
   let isValid = true;
 
@@ -40,7 +42,7 @@ function validateFormSubmit(event: SubmitEvent) {
     controls.forEach((control) => {
       const input = control.querySelector<HTMLInputElement>("input");
       const messageContainer = control.querySelector<HTMLParagraphElement>(
-        "[data-form-control-message]",
+        SelectorsMap.FormControlMessage,
       );
 
       if (input?.required) {
@@ -72,12 +74,12 @@ export function handleSubmitForm(event: SubmitEvent) {
   //   `[data-form-success=${target.id}]`,
   // );
 
-  const unknowInvalidResponse = target.getAttribute(
-    "data-unknown-invalid-response",
-  );
-  const responseEl = target.querySelector<HTMLParagraphElement>(
-    "[data-form-response]",
-  );
+  // const unknowInvalidResponse = target.getAttribute(
+  //   "data-unknown-invalid-response",
+  // );
+  // const responseEl = target.querySelector<HTMLParagraphElement>(
+  //   "[data-form-response]",
+  // );
 
   if (!isValid) return;
 
@@ -88,10 +90,10 @@ export function handleSubmitForm(event: SubmitEvent) {
       true;
   }
 
-  if (responseEl) {
-    responseEl.textContent = "";
-    responseEl.ariaHidden = "true";
-  }
+  // if (responseEl) {
+  //   responseEl.textContent = "";
+  //   responseEl.ariaHidden = "true";
+  // }
 
   fetch(target.action, {
     method: target.method,
@@ -105,11 +107,11 @@ export function handleSubmitForm(event: SubmitEvent) {
           response.status,
           response.statusText,
         );
-        if (responseEl) {
-          responseEl.textContent =
-            unknowInvalidResponse ?? "Что-то пошло не так!";
-          responseEl.ariaHidden = "false";
-        }
+        // if (responseEl) {
+        //   responseEl.textContent =
+        //     unknowInvalidResponse ?? "Что-то пошло не так!";
+        //   responseEl.ariaHidden = "false";
+        // }
         return;
       }
 
@@ -122,16 +124,16 @@ export function handleSubmitForm(event: SubmitEvent) {
           successOverlay.ariaHidden = "true";
           target.ariaHidden = "false";
         }, 5000);
-      } else */ if (responseEl)
+      } else  if (responseEl)
         responseEl.textContent = "Заявка отправлена успешно!";
-
+        */
       target.reset();
     })
     .catch((error) => {
-      if (responseEl) {
-        responseEl.textContent = error;
-        responseEl.ariaHidden = "false";
-      }
+      // if (responseEl) {
+      //   responseEl.textContent = error;
+      //   responseEl.ariaHidden = "false";
+      // }
       console.error(error);
     })
     .finally(() => {

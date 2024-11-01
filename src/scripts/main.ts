@@ -2,8 +2,9 @@ import Swiper from "swiper/bundle";
 import { initTelMask } from "./tel-mask";
 import { initContactsMap, initCloseContactsSidebarHander } from "./contacts";
 import { handleSubmitForm } from "./forms-handler";
+import { SelectorsMap } from "./constants";
 
-new Swiper("[data-projects-slider]", {
+new Swiper(SelectorsMap.ProjectsSlider, {
   loop: false,
   slidesPerView: 1,
   speed: 600,

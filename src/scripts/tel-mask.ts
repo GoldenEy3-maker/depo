@@ -1,7 +1,10 @@
 import IMask from "imask";
+import { SelectorsMap } from "./constants";
 
 export function initTelMask() {
-  const inputs = document.querySelectorAll<HTMLInputElement>("input[type=tel]");
+  const inputs = document.querySelectorAll<HTMLInputElement>(
+    SelectorsMap.TelMaskInput,
+  );
 
   if (inputs.length)
     inputs.forEach((input) => {
