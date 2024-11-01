@@ -1,8 +1,11 @@
 import Swiper from "swiper/bundle";
 import { initTelMask } from "./tel-mask";
-import { initContactsMap, initCloseContactsSidebarHander } from "./contacts";
+import { initCloseContactsSidebarHander } from "./contacts";
 import { handleSubmitForm } from "./forms-handler";
 import { SelectorsMap } from "./constants";
+import { initLazyLoading } from "./lazy-loading";
+
+initLazyLoading();
 
 new Swiper(SelectorsMap.ProjectsSlider, {
   loop: false,
@@ -16,6 +19,5 @@ new Swiper(SelectorsMap.ProjectsSlider, {
 
 initTelMask();
 initCloseContactsSidebarHander();
-initContactsMap();
 
 document.addEventListener("submit", handleSubmitForm);
