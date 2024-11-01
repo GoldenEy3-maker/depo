@@ -15,6 +15,7 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@rollup/stream": "^3.0.1",
     "@types/gulp": "^4.0.17",
+    "@yandex/ymaps3-types": "^1.0.15147272",
     "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.6",
@@ -41,7 +42,8 @@
     "tslib": "^2.7.0",
     "typescript": "^5.5.4",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "zod": "^3.23.8"
   },
   "dependencies": {
     "gulp-pug": "^5.0.0",

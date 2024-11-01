@@ -114,7 +114,7 @@ function views() {
         value: "%MDS%",
         append: {
           key: "v",
-          to: ["js", "css"],
+          to: [{ type: "js", files: ["main.min.js"] }, "css", "image"],
         },
       }),
     )
