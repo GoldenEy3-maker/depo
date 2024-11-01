@@ -149,7 +149,7 @@ export async function initContactsMap() {
           trigger.ariaCurrent = "true";
 
           const markerDataAttr = swiper.slides[swiper.activeIndex].getAttribute(
-            SelectorsMap.ContactsSlidesWithMapMarker,
+            getAttrFromSelector(SelectorsMap.ContactsSlidesWithMapMarker),
           );
 
           if (!markerDataAttr) return;
