@@ -1,0 +1,10 @@
+extends ../layouts/root.pug
+include ../../components/sections/project-slider
+include ../../components/sections/contacts
+include ../../components/sections/contact-form
+
+block content
+  main(class="col-span-full grid grid-cols-subgrid")
+    +project-slider
+    +contacts
+    +contact-form

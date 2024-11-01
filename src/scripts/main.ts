@@ -17,6 +17,16 @@ new Swiper(SelectorsMap.ProjectsSlider, {
   },
 });
 
+new Swiper(SelectorsMap.ProjectSlider, {
+  loop: false,
+  slidesPerView: 1,
+  speed: 600,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 initCloseContactsSidebarHander();
 initTelMask();
 

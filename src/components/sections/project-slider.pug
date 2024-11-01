@@ -1,0 +1,82 @@
+include ../button
+
+mixin project-slider
+  section(
+    class="col-span-full grid min-h-[min(calc(100svh-5rem),62rem)] grid-cols-subgrid"
+  )
+    div(
+      class="col-span-full grid min-h-[22.5rem] auto-rows-max grid-cols-subgrid grid-rows-[auto_1fr_auto] bg-muted-foreground ~pt-[2rem]/[3.25rem] md2:col-span-9 md2:min-h-0"
+    )
+      h1(class="col-[main/-2] text-h1 text-brand") Дом на Кленова
+      ul(class="col-[main/-2] space-y-7 self-end pt-8")
+        li(class="flex flex-col items-start space-y-1")
+          h4(class="text-h4") 1 200
+          span(class="text-muted") квартир в комплексе
+        li(class="flex flex-col items-start space-y-1")
+          h4(class="text-h4") 2 108,7 м²
+          span(class="text-muted") коммерческие помещения
+        li(class="flex flex-col items-start space-y-1")
+          h4(class="text-h4") IV квартал 2025
+          span(class="text-muted") сдача проекта
+        li(class="flex flex-col items-start space-y-1")
+          h4(class="text-h4") ул. Кленова 123
+          span(class="text-muted") г. Барнаул
+      footer(class="col-span-full ~pt-[2rem]/[3.25rem]")
+        +button-as-link("default", "lg")(href="#", class="!w-full max-sm:h-16") Выбрать квартиру
+    div(
+      class="swiper relative col-span-full grid min-h-[30rem] w-full grid-cols-subgrid overflow-hidden bg-muted md2:col-[span_17] md2:min-h-0 [&>*]:row-start-1",
+      data-project-slider=""
+    )
+      div(class="swiper-wrapper col-span-full row-start-1 flex h-full")
+        div(class="swiper-slide relative shrink-0 grow-0 basis-full overflow-hidden") 
+          img(
+            class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
+            data-lazy-img="assets/img/house-2.webp",
+            src="",
+            alt=""
+          )
+        div(class="swiper-slide relative shrink-0 grow-0 basis-full overflow-hidden") 
+          img(
+            class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
+            data-lazy-img="assets/img/house-2.webp",
+            src="",
+            alt=""
+          )
+        div(class="swiper-slide relative shrink-0 grow-0 basis-full overflow-hidden") 
+          img(
+            class="absolute inset-0 h-full w-[120%] max-w-none animate-floatingImage",
+            data-lazy-img="assets/img/house-2.webp",
+            src="",
+            alt=""
+          )
+      div(class="z-10 col-span-full flex items-center justify-end self-end")
+        +button("default", "icon-lg")(
+          type="button",
+          class="swiper-button-prev max-sm:!h-16 max-sm:!w-16"
+        )
+          svg(
+            width="16",
+            height="26",
+            viewBox="0 0 16 26",
+            fill="none",
+            xmlns="http://www.w3.org/2000/svg"
+          )
+            path(
+              d="M9.53674e-07 10.4591V15.5409L16 26V21.0955L3.28572 13L16 4.90455V0L9.53674e-07 10.4591Z",
+              fill="currentColor"
+            )
+        +button("default", "icon-lg")(
+          type="button",
+          class="swiper-button-next max-sm:!h-16 max-sm:!w-16"
+        )
+          svg(
+            width="16",
+            height="26",
+            viewBox="0 0 16 26",
+            fill="none",
+            xmlns="http://www.w3.org/2000/svg"
+          )
+            path(
+              d="M16 10.4591V15.5409L0 26V21.0955L12.7143 13L0 4.90455V0L16 10.4591Z",
+              fill="currentColor"
+            )
