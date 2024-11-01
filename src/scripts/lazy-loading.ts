@@ -1,5 +1,6 @@
 import { SelectorsMap } from "./constants";
 import { initContactsMap } from "./contacts";
+import { getAttrFromSelector } from "./helpers";
 
 export function initLazyLoading() {
   const YmapsMap = {
@@ -16,13 +17,15 @@ export function initLazyLoading() {
     string,
     [IntersectionObserver, (el: HTMLElement) => void]
   > = {
-    "[data-lazy-img]": [
+    [SelectorsMap.LazyLoadingImg]: [
       new IntersectionObserver(
         (entries, observer) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const target = entry.target as HTMLImageElement;
-              const src = target.getAttribute("data-lazy-img")!;
+              const src = target.getAttribute(
+                getAttrFromSelector(SelectorsMap.LazyLoadingImg),
+              )!;
               target.src = src;
               observer.unobserve(target);
             }
@@ -33,9 +36,11 @@ export function initLazyLoading() {
         },
       ),
       (el) =>
-        ((el as HTMLImageElement).src = el.getAttribute("data-lazy-img")!),
+        ((el as HTMLImageElement).src = el.getAttribute(
+          getAttrFromSelector(SelectorsMap.LazyLoadingImg),
+        )!),
     ],
-    "[data-lazy-map]": [
+    [SelectorsMap.LazyLoadingMap]: [
       new IntersectionObserver((entries, obsever) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
