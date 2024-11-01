@@ -17,7 +17,7 @@ new Swiper(SelectorsMap.ProjectsSlider, {
   },
 });
 
-initTelMask();
 initCloseContactsSidebarHander();
+initTelMask();
 
 document.addEventListener("submit", handleSubmitForm);

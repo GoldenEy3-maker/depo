@@ -1,0 +1,10 @@
+extends ../layouts/root.pug
+include ../../components/sections/our-projects
+include ../../components/sections/contacts
+include ../../components/sections/contact-form
+
+block content
+  main(class="col-span-full grid grid-cols-subgrid")
+    +our-projects(true)(class="mt-[5rem]")
+    +contacts
+    +contact-form
