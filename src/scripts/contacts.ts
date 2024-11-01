@@ -18,51 +18,47 @@ function parseMarkerData(value: string) {
 }
 
 function openContactsSidebar() {
-  const triggers = document.querySelectorAll("[data-contacts-sidebar-toggler]");
   const sidebar = document.querySelector("[data-contacts-sidebar]");
 
-  if (!sidebar || triggers.length === 0) return;
+  if (!sidebar) return;
 
-  triggers.forEach((trigger) => (trigger.ariaExpanded = "true"));
   sidebar.ariaExpanded = "true";
 }
 
-export function initContactsSidebarToggling() {
-  const triggers = document.querySelectorAll("[data-contacts-sidebar-toggler]");
-  const sidebar = document.querySelector("[data-contacts-sidebar]");
+export function initCloseContactsSidebarHander() {
+  const closeTrigger = document.querySelector<HTMLElement>(
+    "[data-contacts-sidebar-close]",
+  );
+  const sidebar = document.querySelector<HTMLElement>(
+    "[data-contacts-sidebar]",
+  );
 
-  if (!sidebar || triggers.length === 0) return;
+  if (!sidebar || !closeTrigger) return;
 
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      const isOpen =
-        sidebar.ariaExpanded === "true" || sidebar.ariaExpanded === null;
-      sidebar.ariaExpanded = isOpen ? "false" : "true";
+  closeTrigger.addEventListener("click", () => {
+    sidebar.ariaExpanded = "false";
 
-      triggers.forEach(
-        (trigger) => (trigger.ariaExpanded = isOpen ? "false" : "true"),
-      );
-    });
+    const markers = document.querySelectorAll<HTMLElement>(
+      "[data-contacts-map-marker-trigger]",
+    );
+
+    if (markers.length)
+      markers.forEach((marker) => (marker.ariaCurrent = "false"));
   });
 }
 
 export async function initContactsMap() {
-  const contactsMap = document.getElementById("contacts-map");
-  const contactsMapElements = document.querySelectorAll<HTMLElement>(
+  const container = document.getElementById("contacts-map");
+  const contactsSlidesWithMapMarker = document.querySelectorAll<HTMLElement>(
     "[data-contacts-map-marker]",
   );
 
-  if (!contactsMap) return;
+  if (!container) return;
 
   const LOCATION: YMapLocationRequest = {
     center: [83.75866, 53.351807],
     zoom: 13,
   };
-
-  const MarkerStateMap = {
-    Active: "bg-text-foreground",
-    Default: "bg-primary",
-  } as const;
 
   await ymaps3.ready;
 
@@ -70,7 +66,7 @@ export async function initContactsMap() {
     ymaps3;
 
   const map = new YMap(
-    contactsMap,
+    container,
     {
       location: LOCATION,
       theme: "dark",
@@ -78,8 +74,8 @@ export async function initContactsMap() {
     [new YMapDefaultSchemeLayer({}), new YMapDefaultFeaturesLayer({})],
   );
 
-  if (contactsMapElements.length)
-    contactsMapElements.forEach((node, index) => {
+  if (contactsSlidesWithMapMarker.length)
+    contactsSlidesWithMapMarker.forEach((node, index) => {
       const markerDataAttr = node.getAttribute("data-contacts-map-marker");
 
       if (!markerDataAttr) return;
@@ -102,15 +98,14 @@ export async function initContactsMap() {
         "~top-[-1.5rem]/[-2.4375rem]",
         "~left-[-1.5rem]/[-2.4375rem]",
         "~p-1/2",
+        "bg-primary",
+        "aria-[current=true]:bg-text-foreground",
         "focus:outline-none",
         "focus-visible:ring",
         "focus-visible:ring-primary",
       );
-      button.classList.add(
-        index === contactsSlider.activeIndex
-          ? MarkerStateMap.Active
-          : MarkerStateMap.Default,
-      );
+      button.ariaCurrent =
+        index === contactsSlider.activeIndex ? "true" : "false";
 
       img.src = markerData.img;
       img.classList.add("w-full", "h-full", "object-cover");
@@ -132,15 +127,18 @@ export async function initContactsMap() {
       );
     });
 
-  contactsSlider.on("slideChange", (swiper) => {
-    document
-      .querySelectorAll("[data-contacts-map-marker-trigger]")
-      .forEach((trigger, index) => {
-        trigger.classList.remove(MarkerStateMap.Active);
-        trigger.classList.add(MarkerStateMap.Default);
+  const mapMarkers = document.querySelectorAll<HTMLElement>(
+    "[data-contacts-map-marker-trigger]",
+  );
+
+  if (mapMarkers.length)
+    contactsSlider.on("slideChange", (swiper) => {
+      mapMarkers.forEach((trigger, index) => {
+        trigger.ariaCurrent = "false";
 
         if (swiper.activeIndex === index) {
-          trigger.classList.add(MarkerStateMap.Active);
+          trigger.ariaCurrent = "true";
+
           const markerDataAttr = swiper.slides[swiper.activeIndex].getAttribute(
             "data-contacts-map-marker",
           );
@@ -155,5 +153,5 @@ export async function initContactsMap() {
           });
         }
       });
-  });
+    });
 }

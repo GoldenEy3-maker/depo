@@ -1,6 +1,6 @@
 import Swiper from "swiper/bundle";
 import { initTelMask } from "./tel-mask";
-import { initContactsMap, initContactsSidebarToggling } from "./contacts";
+import { initContactsMap, initCloseContactsSidebarHander } from "./contacts";
 import { handleSubmitForm } from "./forms-handler";
 
 new Swiper("[data-projects-slider]", {
@@ -14,7 +14,7 @@ new Swiper("[data-projects-slider]", {
 });
 
 initTelMask();
-initContactsSidebarToggling();
+initCloseContactsSidebarHander();
 initContactsMap();
 
 document.addEventListener("submit", handleSubmitForm);
