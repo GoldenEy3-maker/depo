@@ -1,0 +1,11 @@
+mixin breadcrumbs
+  div(class="flex flex-wrap items-center gap-x-2 text-muted")&attributes(attributes)
+    a(
+      href="/",
+      class="flex items-center gap-x-2 after:inline-block after:content-['/']"
+    ) Главная
+    a(
+      href="/projects.html",
+      class="flex items-center gap-x-2 after:inline-block after:content-['/']"
+    ) Проекты
+    span(class="text-text-background") Дом на Кленова
