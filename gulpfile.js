@@ -34,8 +34,6 @@ import imageminWebp from "imagemin-webp";
 import ttf2woff from "gulp-ttf2woff";
 import ttf2woff2 from "gulp-ttf2woff2";
 
-const isDev = process.env.NODE_ENV === "development";
-
 const browserSync = browserSyncCreate();
 
 const sass = gulpSass(dartSass);
