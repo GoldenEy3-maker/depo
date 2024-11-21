@@ -1,10 +1,10 @@
 import ymaps3, { LngLat, YMapLocationRequest } from "@yandex/ymaps3-types";
 import Swiper from "swiper/bundle";
 import { z } from "zod";
-import { SelectorsMap } from "./constants";
+import { SelectorMap } from "./constants";
 import { getAttrFromSelector } from "./helpers";
 
-const contactsSlider = new Swiper(SelectorsMap.ContactsSlider, {
+const contactsSlider = new Swiper(SelectorMap.ContactsSlider, {
   loop: false,
   slidesPerView: 1,
   speed: 600,
@@ -20,7 +20,7 @@ function parseMarkerData(value: string) {
 }
 
 function openContactsSidebar() {
-  const sidebar = document.querySelector(SelectorsMap.ContactsSidebar);
+  const sidebar = document.querySelector(SelectorMap.ContactsSidebar);
 
   if (!sidebar) return;
 
@@ -29,10 +29,10 @@ function openContactsSidebar() {
 
 export function initCloseContactsSidebarHander() {
   const closeTrigger = document.querySelector<HTMLElement>(
-    SelectorsMap.ContactsSidebarCloseTrigger,
+    SelectorMap.ContactsSidebarCloseTrigger,
   );
   const sidebar = document.querySelector<HTMLElement>(
-    SelectorsMap.ContactsSidebar,
+    SelectorMap.ContactsSidebar,
   );
 
   if (!sidebar || !closeTrigger) return;
@@ -41,7 +41,7 @@ export function initCloseContactsSidebarHander() {
     sidebar.ariaExpanded = "false";
 
     const markers = document.querySelectorAll<HTMLElement>(
-      SelectorsMap.ContactsMapMarkerTrigger,
+      SelectorMap.ContactsMapMarkerTrigger,
     );
 
     if (markers.length)
@@ -51,10 +51,10 @@ export function initCloseContactsSidebarHander() {
 
 export async function initContactsMap() {
   const container = document.querySelector<HTMLElement>(
-    SelectorsMap.ContactsMap,
+    SelectorMap.ContactsMap,
   );
   const contactsSlidesWithMapMarker = document.querySelectorAll<HTMLElement>(
-    SelectorsMap.ContactsSlidesWithMapMarker,
+    SelectorMap.ContactsSlidesWithMapMarker,
   );
 
   if (!container) return;
@@ -81,7 +81,7 @@ export async function initContactsMap() {
   if (contactsSlidesWithMapMarker.length)
     contactsSlidesWithMapMarker.forEach((node, index) => {
       const markerDataAttr = node.getAttribute(
-        getAttrFromSelector(SelectorsMap.ContactsSlidesWithMapMarker),
+        getAttrFromSelector(SelectorMap.ContactsSlidesWithMapMarker),
       );
 
       if (!markerDataAttr) return;
@@ -92,7 +92,7 @@ export async function initContactsMap() {
       const img = document.createElement("img");
 
       button.setAttribute(
-        getAttrFromSelector(SelectorsMap.ContactsMapMarkerTrigger),
+        getAttrFromSelector(SelectorMap.ContactsMapMarkerTrigger),
         "",
       );
       button.type = "button";
@@ -137,7 +137,7 @@ export async function initContactsMap() {
     });
 
   const mapMarkers = document.querySelectorAll<HTMLElement>(
-    SelectorsMap.ContactsMapMarkerTrigger,
+    SelectorMap.ContactsMapMarkerTrigger,
   );
 
   if (mapMarkers.length)
@@ -149,7 +149,7 @@ export async function initContactsMap() {
           trigger.ariaCurrent = "true";
 
           const markerDataAttr = swiper.slides[swiper.activeIndex].getAttribute(
-            getAttrFromSelector(SelectorsMap.ContactsSlidesWithMapMarker),
+            getAttrFromSelector(SelectorMap.ContactsSlidesWithMapMarker),
           );
 
           if (!markerDataAttr) return;

@@ -1,4 +1,4 @@
-export const SelectorsMap = {
+export const SelectorMap = {
   ProjectsSlider: "[data-projects-slider]",
   ProjectSlider: "[data-project-slider]",
   TelMaskInput: "input[type=tel]",

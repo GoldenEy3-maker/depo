@@ -1,13 +1,13 @@
 import Swiper from "swiper/bundle";
 import { initTelMask } from "./tel-mask";
 import { initCloseContactsSidebarHander } from "./contacts";
-import { handleSubmitForm } from "./forms-handler";
-import { SelectorsMap } from "./constants";
+import { handleSubmitForm } from "./forms";
+import { SelectorMap } from "./constants";
 import { initLazyLoading } from "./lazy-loading";
 
 initLazyLoading();
 
-new Swiper(SelectorsMap.ProjectsSlider, {
+new Swiper(SelectorMap.ProjectsSlider, {
   loop: false,
   slidesPerView: 1,
   speed: 600,
@@ -17,7 +17,7 @@ new Swiper(SelectorsMap.ProjectsSlider, {
   },
 });
 
-new Swiper(SelectorsMap.ProjectSlider, {
+new Swiper(SelectorMap.ProjectSlider, {
   loop: false,
   slidesPerView: 1,
   speed: 600,

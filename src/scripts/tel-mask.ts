@@ -1,9 +1,9 @@
 import IMask from "imask";
-import { SelectorsMap } from "./constants";
+import { SelectorMap } from "./constants";
 
 export function initTelMask() {
   const inputs = document.querySelectorAll<HTMLInputElement>(
-    SelectorsMap.TelMaskInput,
+    SelectorMap.TelMaskInput,
   );
 
   if (inputs.length)
