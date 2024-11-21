@@ -1,6 +1,6 @@
 import { SelectorMap } from "./constants";
 import { initContactsMap } from "./contacts";
-import { getAttrFromSelector } from "./helpers";
+import { getAttrFromSelector } from "./utils";
 
 export function initLazyLoading() {
   const YmapsMap = {
