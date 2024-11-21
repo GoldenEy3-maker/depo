@@ -1,64 +1,81 @@
-import { SelectorsMap } from "./constants";
+import { SelectorMap } from "./constants";
+import { z } from "zod";
 
-function validateFormSubmit(event: SubmitEvent) {
-  const controls = (
-    event.currentTarget as HTMLFormElement
-  ).querySelectorAll<HTMLDivElement>(SelectorsMap.FormControl);
+function generateResolver(input: HTMLInputElement) {
+  let parser = z.string({
+    required_error: input.required ? "Обязательное поле" : undefined,
+  });
+
+  if (input.pattern) {
+    parser = parser.regex(
+      new RegExp(`^(?:${input.pattern})$`),
+      input.getAttribute("data-pattern-text") ?? undefined,
+    );
+  }
+
+  if (input.minLength !== undefined && input.minLength !== -1) {
+    parser = parser.min(
+      input.minLength,
+      `Минимальное количество символов поля ${input.minLength}`,
+    );
+  }
+
+  return parser;
+}
+
+function validateField(
+  input: HTMLInputElement,
+  resolver: z.ZodString,
+  messageContainer?: HTMLParagraphElement | null,
+) {
+  const result = resolver.safeParse(
+    input.value !== "" ? input.value : undefined,
+  );
+
+  if (result.error) {
+    input.ariaInvalid = "true";
+    if (messageContainer)
+      messageContainer.textContent = result.error?.flatten().formErrors[0];
+    return false;
+  }
+
+  input.ariaInvalid = "false";
+  if (messageContainer) messageContainer.textContent = "";
+  return true;
+}
+
+function validateForm(
+  form: HTMLFormElement,
+  watchCallback?: (isValid: boolean) => void,
+) {
+  const controls = form.querySelectorAll<HTMLDivElement>(
+    SelectorMap.FormControl,
+  );
 
   let isValid = true;
 
-  function validateRequired(
-    target: HTMLInputElement,
-    messageContainer: HTMLParagraphElement | null,
-  ) {
-    if (target.value === "") {
-      isValid = false;
-      if (messageContainer) messageContainer.textContent = "Обязательное поле";
-      target.ariaInvalid = "true";
-    } else {
-      if (messageContainer) messageContainer.textContent = "";
-      target.ariaInvalid = "false";
-    }
-  }
+  controls.forEach((control) => {
+    const input = control.querySelector<HTMLInputElement>("input");
+    const messageContainer = control.querySelector<HTMLParagraphElement>(
+      SelectorMap.FormControlMessage,
+    );
 
-  function validatePattern(
-    target: HTMLInputElement,
-    messageContainer: HTMLParagraphElement | null,
-  ) {
-    if (!target.value && target.required) return;
+    if (!input) return;
 
-    if (!new RegExp(`^(?:${target.pattern})$`).test(target.value)) {
-      isValid = false;
-      if (messageContainer)
-        messageContainer.textContent = target.dataset.patternText ?? null;
-      target.ariaInvalid = "true";
-    } else {
-      if (messageContainer) messageContainer.textContent = "";
-      target.ariaInvalid = "false";
-    }
-  }
+    const resolver = generateResolver(input);
 
-  if (controls.length)
-    controls.forEach((control) => {
-      const input = control.querySelector<HTMLInputElement>("input");
-      const messageContainer = control.querySelector<HTMLParagraphElement>(
-        SelectorsMap.FormControlMessage,
+    isValid = validateField(input, resolver, messageContainer);
+    input.addEventListener("input", () => {
+      isValid = validateField(input, resolver, messageContainer);
+      watchCallback?.(
+        form.querySelector(
+          `${SelectorMap.FormControl} input[aria-invalid=true]`,
+        )
+          ? false
+          : true,
       );
-
-      if (input?.required) {
-        validateRequired(input, messageContainer);
-        input.addEventListener("input", () =>
-          validateRequired(input, messageContainer),
-        );
-      }
-
-      if (input?.pattern) {
-        validatePattern(input, messageContainer);
-        input.addEventListener("input", () =>
-          validatePattern(input, messageContainer),
-        );
-      }
     });
+  });
 
   return isValid;
 }
@@ -68,7 +85,7 @@ export function handleSubmitForm(event: SubmitEvent) {
 
   const target = event.target as HTMLFormElement;
 
-  const isValid = validateFormSubmit(event);
+  const isValid = validateForm(target);
 
   // const successOverlay = document.querySelector<HTMLElement>(
   //   `[data-form-success=${target.id}]`,
