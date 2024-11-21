@@ -2,7 +2,7 @@ import ymaps3, { LngLat, YMapLocationRequest } from "@yandex/ymaps3-types";
 import Swiper from "swiper/bundle";
 import { z } from "zod";
 import { SelectorMap } from "./constants";
-import { getAttrFromSelector } from "./helpers";
+import { getAttrFromSelector, parseJSONWithQuotes } from "./utils";
 
 const contactsSlider = new Swiper(SelectorMap.ContactsSlider, {
   loop: false,
@@ -10,13 +10,16 @@ const contactsSlider = new Swiper(SelectorMap.ContactsSlider, {
   speed: 600,
 });
 
-function parseMarkerData(value: string) {
-  const schema = z.object({
-    coordinates: z.custom<LngLat>(),
-    img: z.string(),
-  });
+const MarkerDataSchema = z.object({
+  coordinates: z.custom<LngLat>(),
+  img: z.string(),
+  target: z.custom<HTMLButtonElement>().optional(),
+});
 
-  return schema.parse(JSON.parse(value.replace(/&quot;/gi, '"')));
+let _activeMapMarker: HTMLButtonElement | null = null;
+
+function parseMarkerData(value: string) {
+  return MarkerDataSchema.parse(parseJSONWithQuotes(value));
 }
 
 function openContactsSidebar() {
@@ -40,12 +43,10 @@ export function initCloseContactsSidebarHander() {
   closeTrigger.addEventListener("click", () => {
     sidebar.ariaExpanded = "false";
 
-    const markers = document.querySelectorAll<HTMLElement>(
-      SelectorMap.ContactsMapMarkerTrigger,
-    );
-
-    if (markers.length)
-      markers.forEach((marker) => (marker.ariaCurrent = "false"));
+    if (_activeMapMarker) {
+      _activeMapMarker.ariaCurrent = "false";
+      _activeMapMarker = null;
+    }
   });
 }
 
@@ -53,8 +54,10 @@ export async function initContactsMap() {
   const container = document.querySelector<HTMLElement>(
     SelectorMap.ContactsMap,
   );
-  const contactsSlidesWithMapMarker = document.querySelectorAll<HTMLElement>(
-    SelectorMap.ContactsSlidesWithMapMarker,
+  const contactsSlidesWithMapMarker = Array.from(
+    document.querySelectorAll<HTMLElement>(
+      SelectorMap.ContactsSlidesWithMapMarker,
+    ),
   );
 
   if (!container) return;
@@ -78,89 +81,87 @@ export async function initContactsMap() {
     [new YMapDefaultSchemeLayer({}), new YMapDefaultFeaturesLayer({})],
   );
 
-  if (contactsSlidesWithMapMarker.length)
-    contactsSlidesWithMapMarker.forEach((node, index) => {
-      const markerDataAttr = node.getAttribute(
-        getAttrFromSelector(SelectorMap.ContactsSlidesWithMapMarker),
-      );
+  const markersData = contactsSlidesWithMapMarker.reduce<
+    z.infer<typeof MarkerDataSchema>[]
+  >((acc, slide, index) => {
+    const isActiveButton = index === contactsSlider.activeIndex;
 
-      if (!markerDataAttr) return;
+    const markerDataAttr = slide.getAttribute(
+      getAttrFromSelector(SelectorMap.ContactsSlidesWithMapMarker),
+    )!;
 
-      const markerData = parseMarkerData(markerDataAttr);
+    const markerData = parseMarkerData(markerDataAttr);
 
-      const button = document.createElement("button");
-      const img = document.createElement("img");
+    const button = document.createElement("button");
+    const img = document.createElement("img");
 
-      button.setAttribute(
-        getAttrFromSelector(SelectorMap.ContactsMapMarkerTrigger),
-        "",
-      );
-      button.type = "button";
+    button.setAttribute(
+      getAttrFromSelector(SelectorMap.ContactsMapMarkerTrigger),
+      "",
+    );
+    button.type = "button";
 
-      button.classList.add(
-        "relative",
-        "flex",
-        "items-center",
-        "justify-center",
-        "~w-12/[4.875rem]",
-        "~h-12/[4.875rem]",
-        "~top-[-1.5rem]/[-2.4375rem]",
-        "~left-[-1.5rem]/[-2.4375rem]",
-        "~p-1/2",
-        "bg-primary",
-        "aria-[current=true]:bg-text-foreground",
-        "focus:outline-none",
-        "focus-visible:ring",
-        "focus-visible:ring-primary",
-      );
-      button.ariaCurrent =
-        index === contactsSlider.activeIndex ? "true" : "false";
+    button.classList.add(
+      "relative",
+      "flex",
+      "items-center",
+      "justify-center",
+      "~w-12/[4.875rem]",
+      "~h-12/[4.875rem]",
+      "~top-[-1.5rem]/[-2.4375rem]",
+      "~left-[-1.5rem]/[-2.4375rem]",
+      "~p-1/2",
+      "bg-primary",
+      "aria-[current=true]:bg-text-foreground",
+      "focus:outline-none",
+      "focus-visible:ring",
+      "focus-visible:ring-primary",
+    );
 
-      img.src = markerData.img;
-      img.classList.add("w-full", "h-full", "object-cover");
+    button.ariaCurrent = isActiveButton ? "true" : "false";
 
-      button.append(img);
+    if (isActiveButton) _activeMapMarker = button;
 
-      button.addEventListener("click", () => {
-        contactsSlider.slideTo(index);
-        openContactsSidebar();
-      });
+    img.src = markerData.img;
+    img.classList.add("w-full", "h-full", "object-cover");
 
-      map.addChild(
-        new YMapMarker(
-          {
-            coordinates: markerData.coordinates,
-          },
-          button,
-        ),
-      );
+    button.append(img);
+
+    button.addEventListener("click", () => {
+      contactsSlider.slideTo(index);
+      openContactsSidebar();
     });
 
-  const mapMarkers = document.querySelectorAll<HTMLElement>(
-    SelectorMap.ContactsMapMarkerTrigger,
-  );
+    map.addChild(
+      new YMapMarker(
+        {
+          coordinates: markerData.coordinates,
+        },
+        button,
+      ),
+    );
 
-  if (mapMarkers.length)
-    contactsSlider.on("slideChange", (swiper) => {
-      mapMarkers.forEach((trigger, index) => {
-        trigger.ariaCurrent = "false";
+    markerData.target = button;
 
-        if (swiper.activeIndex === index) {
-          trigger.ariaCurrent = "true";
+    acc.push(markerData);
 
-          const markerDataAttr = swiper.slides[swiper.activeIndex].getAttribute(
-            getAttrFromSelector(SelectorMap.ContactsSlidesWithMapMarker),
-          );
+    return acc;
+  }, []);
 
-          if (!markerDataAttr) return;
+  contactsSlider.on("slideChange", (swiper) => {
+    const activeIndex = swiper.activeIndex;
+    const coordinates = markersData[activeIndex].coordinates;
+    const markerTarget = markersData[activeIndex].target;
 
-          const markerData = parseMarkerData(markerDataAttr);
+    if (markerTarget) {
+      if (_activeMapMarker) _activeMapMarker.ariaCurrent = "false";
+      markerTarget.ariaCurrent = "true";
+      _activeMapMarker = markerTarget;
+    }
 
-          map.setLocation({
-            center: markerData.coordinates,
-            duration: 600,
-          });
-        }
-      });
+    map.setLocation({
+      center: coordinates,
+      duration: 600,
     });
+  });
 }
