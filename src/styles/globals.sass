@@ -13,7 +13,7 @@
 @layer utilities
   .main-container
     display: grid
-    grid-template-columns: [padding-left-start] utils.calc-clamp(1rem, 3rem, 640, 1536) [padding-left-end main-start] repeat(24, 1fr) [main-end padding-right-start] utils.calc-clamp(1rem, 3rem, 640, 1536) [padding-right-end]
+    grid-template-columns: utils.calc-clamp(1rem, 3rem, 640, 1536) [main-start] repeat(24, 1fr) [main-end] utils.calc-clamp(1rem, 3rem, 640, 1536)
     grid-auto-rows: max-content
 
   .max-container
