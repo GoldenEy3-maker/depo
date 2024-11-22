@@ -4,7 +4,7 @@ mixin news
       class="col-[main] flex flex-wrap items-end justify-between gap-x-6 gap-y-2 ~mb-8/12"
     )
       h2(class="text-h2 font-medium text-brand") Новости и акции
-      +button-as-link("ghost")(href="#", class="h-auto !px-0")
+      +button("ghost", "default", true)(href="#", class="h-auto !px-0")
         span Все медиа
         span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
           svg(

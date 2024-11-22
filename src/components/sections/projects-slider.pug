@@ -54,10 +54,7 @@ mixin projects-slider
       div(
         class="z-10 col-span-full row-start-1 flex items-center gap-x-4 self-end sm:justify-between"
       )
-        +button-as-link("default", "lg")(
-          href="#",
-          class="w-full max-sm:h-16 sm:w-auto"
-        ) Выбрать квартиру
+        +button("default", "lg", true)(href="#", class="w-full max-sm:h-16 sm:w-auto") Выбрать квартиру
         div(class="hidden items-center sm:flex")
           +button("default", "icon-lg")(type="button", class="swiper-button-prev")
             svg(

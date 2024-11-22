@@ -1,11 +1,13 @@
-mixin button(variant="default", size="default")
-  - var baseClass = "inline-flex items-center justify-center text-basicL focus:outline-none focus-visible:ring focus-visible:ring-primary";
-  - var classVariants = { variant: { default: " bg-primary text-text-foreground disabled:bg-muted", outline: " text-secondary border border-primary", ghost: " text-primary" }, size: { default: " h-16 px-12", lg: " h-[5.125rem] px-12", icon: " h-16 w-16", "icon-lg": " h-[5.125rem] w-[5.125rem]", "icon-md": " h-8 w-8" } };
-  button(class=baseClass+classVariants.variant[variant]+classVariants.size[size])&attributes(attributes)
-    block
-
-mixin button-as-link(variant="default", size="default")
-  - var baseClass = "inline-flex items-center justify-center text-basicL focus:outline-none focus-visible:ring focus-visible:ring-primary";
-  - var classVariants = { variant: { default: " bg-primary text-text-foreground disabled:bg-muted", outline: " text-secondary border border-primary", ghost: " text-primary" }, size: { default: " h-16 px-12", lg: " h-[5.125rem] px-12", icon: " h-16 w-16", "icon-lg": " h-[5.125rem] w-[5.125rem]", "icon-md": " h-8 w-8" } };
-  a(class=baseClass+classVariants.variant[variant]+classVariants.size[size])&attributes(attributes)
-    block
+mixin button(variant="default", size="default", asLink=false)
+  if asLink
+    a(
+      class="inline-flex items-center justify-center text-basicL focus:outline-none focus-visible:ring focus-visible:ring-primary",
+      class={"bg-primary disabled:bg-muted text-text-foreground": variant == "default", "text-primary": variant == "ghost", "h-16 px-12": size == "default", "h-[5.125rem] px-12": size == "lg", "h-16 w-16": size == "icon", "h-[5.125rem] w-[5.125rem]": size == "icon-lg", "h-8 w-8": size == "icon-md"}
+    )&attributes(attributes)
+      block
+  else
+    button(
+      class="inline-flex items-center justify-center text-basicL focus:outline-none focus-visible:ring focus-visible:ring-primary",
+      class={"bg-primary disabled:bg-muted text-text-foreground": variant == "default", "text-primary": variant == "ghost", "h-16 px-12": size == "default", "h-[5.125rem] px-12": size == "lg", "h-16 w-16": size == "icon", "h-[5.125rem] w-[5.125rem]": size == "icon-lg", "h-8 w-8": size == "icon-md"}
+    )&attributes(attributes)
+      block

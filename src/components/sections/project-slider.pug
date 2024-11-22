@@ -22,7 +22,7 @@ mixin project-slider
           h4(class="text-h4") ул. Кленова 123
           span(class="text-muted") г. Барнаул
       footer(class="col-span-full ~pt-[2rem]/[3.25rem]")
-        +button-as-link("default", "lg")(href="#", class="!w-full max-sm:h-16") Выбрать квартиру
+        +button("default", "lg", true)(href="#", class="!w-full max-sm:h-16") Выбрать квартиру
     div(
       class="swiper relative col-span-full grid min-h-[30rem] w-full grid-cols-subgrid overflow-hidden bg-muted md2:col-[span_17] md2:min-h-0 [&>*]:row-start-1",
       data-project-slider=""
