@@ -1,0 +1,45 @@
+mixin project-facilities
+  section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
+    div(
+      class="col-[main] flex flex-wrap items-end justify-between gap-x-6 gap-y-2 ~mb-8/12"
+    )
+      h2(class="text-h2 font-medium text-brand") Все удобства под одной
+        br 
+        | крышей
+    div(class="col-span-full grid grid-cols-1 gap-5 md:col-[main] md:grid-cols-2")
+      article(
+        class="relative col-span-full grid h-[25rem] grid-cols-1 before:absolute before:inset-0 before:z-10 before:bg-brand/40"
+      )
+        img(
+          class="absolute inset-0 row-start-1 h-full w-full object-cover",
+          data-lazy-img="assets/img/facility-1.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 row-start-1 self-end px-12 py-8 text-white")
+          h3(class="text-h3") Коммерция
+          p(class="mt-1 text-text-foreground") 6 в продаже
+      article(
+        class="relative grid h-[25rem] grid-cols-1 before:absolute before:inset-0 before:z-10 before:bg-brand/40"
+      )
+        img(
+          class="absolute inset-0 row-start-1 h-full w-full object-cover",
+          data-lazy-img="assets/img/facility-2.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 row-start-1 self-end px-12 py-8 text-white")
+          h3(class="text-h3") Машино-места
+          p(class="mt-1 text-text-foreground") 12 в продаже
+      article(
+        class="relative grid h-[25rem] grid-cols-1 before:absolute before:inset-0 before:z-10 before:bg-brand/40"
+      )
+        img(
+          class="absolute inset-0 row-start-1 h-full w-full object-cover",
+          data-lazy-img="assets/img/facility-3.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 row-start-1 self-end px-12 py-8 text-white")
+          h3(class="text-h3") Кладовые
+          p(class="mt-1 text-text-foreground") Распродано ;)
