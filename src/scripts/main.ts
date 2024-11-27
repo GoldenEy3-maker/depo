@@ -27,6 +27,32 @@ new Swiper(SelectorMap.ProjectSlider, {
   },
 });
 
+const projectFeaturesSliderPhoto = new Swiper(
+  SelectorMap.ProjectFeaturesSliderPhoto,
+  {
+    loop: false,
+    slidesPerView: 1,
+    speed: 600,
+  },
+);
+
+const projectFeaturesSliderText = new Swiper(
+  SelectorMap.ProjectFeaturesSliderText,
+  {
+    loop: false,
+    slidesPerView: 1,
+    speed: 600,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoHeight: true,
+  },
+);
+
+projectFeaturesSliderPhoto.controller.control = projectFeaturesSliderText;
+projectFeaturesSliderText.controller.control = projectFeaturesSliderPhoto;
+
 initCloseContactsSidebarHander();
 initTelMask();
 
