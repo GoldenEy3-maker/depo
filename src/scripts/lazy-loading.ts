@@ -54,13 +54,15 @@ export function initLazyLoading() {
     ],
   };
 
-  Object.entries(LazyCallbacksMap).forEach(([selector, handlers]) => {
-    document
-      .querySelectorAll<HTMLImageElement>(selector)
-      .forEach((el) =>
-        "IntersectionObserver" in window
-          ? handlers[0].observe(el)
-          : handlers[1](el),
-      );
-  });
+  Object.entries(LazyCallbacksMap).forEach(
+    ([selector, [observer, fallback]]) => {
+      document
+        .querySelectorAll<HTMLImageElement>(selector)
+        .forEach((el) =>
+          "IntersectionObserver" in window
+            ? observer.observe(el)
+            : fallback(el),
+        );
+    },
+  );
 }
