@@ -33,6 +33,10 @@ const projectFeaturesSliderPhoto = new Swiper(
     loop: false,
     slidesPerView: 1,
     speed: 600,
+    navigation: {
+      nextEl: SelectorMap.PorjectFeaturesSliderButtonNext,
+      prevEl: SelectorMap.PorjectFeaturesSliderButtonPrev,
+    },
   },
 );
 
@@ -42,10 +46,6 @@ const projectFeaturesSliderText = new Swiper(
     loop: false,
     slidesPerView: 1,
     speed: 600,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
     autoHeight: true,
   },
 );
