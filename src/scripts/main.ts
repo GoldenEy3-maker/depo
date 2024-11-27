@@ -8,8 +8,6 @@ import { initLazyLoading } from "./lazy-loading";
 initLazyLoading();
 
 new Swiper(SelectorMap.ProjectsSlider, {
-  loop: false,
-  slidesPerView: 1,
   speed: 600,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -18,8 +16,6 @@ new Swiper(SelectorMap.ProjectsSlider, {
 });
 
 new Swiper(SelectorMap.ProjectSlider, {
-  loop: false,
-  slidesPerView: 1,
   speed: 600,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -30,8 +26,6 @@ new Swiper(SelectorMap.ProjectSlider, {
 const projectFeaturesSliderPhoto = new Swiper(
   SelectorMap.ProjectFeaturesSliderPhoto,
   {
-    loop: false,
-    slidesPerView: 1,
     speed: 600,
     navigation: {
       nextEl: SelectorMap.PorjectFeaturesSliderButtonNext,
@@ -43,8 +37,6 @@ const projectFeaturesSliderPhoto = new Swiper(
 const projectFeaturesSliderText = new Swiper(
   SelectorMap.ProjectFeaturesSliderText,
   {
-    loop: false,
-    slidesPerView: 1,
     speed: 600,
     autoHeight: true,
   },
@@ -56,8 +48,30 @@ projectFeaturesSliderText.controller.control = projectFeaturesSliderPhoto;
 const projectBlueprintsThumbs = new Swiper(
   SelectorMap.PorjectBlueprintsThumbs,
   {
-    loop: false,
     slidesPerView: "auto",
+  },
+);
+
+const projectBlueprintsTabSlider = new Swiper(
+  SelectorMap.PorjectBlueprintsTabSlider,
+  {
+    speed: 600,
+    simulateTouch: false,
+    thumbs: {
+      swiper: projectBlueprintsThumbs,
+    },
+  },
+);
+
+const projectBlueprintsSlider = new Swiper(
+  SelectorMap.PorjectBlueprintsSlider,
+  {
+    speed: 600,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    nested: true,
   },
 );
 

@@ -6,6 +6,8 @@ export const SelectorMap = {
   PorjectFeaturesSliderButtonNext: "[data-project-features-slider-button-next]",
   PorjectFeaturesSliderButtonPrev: "[data-project-features-slider-button-prev]",
   PorjectBlueprintsThumbs: "[data-project-blueprints-thumbs]",
+  PorjectBlueprintsTabSlider: "[data-project-blueprints-tab-slider]",
+  PorjectBlueprintsSlider: "[data-project-blueprints-slider]",
 
   TelMaskInput: "input[type=tel]",
 
