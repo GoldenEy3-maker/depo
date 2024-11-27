@@ -3,6 +3,7 @@ export const SelectorMap = {
   ProjectSlider: "[data-project-slider]",
   ProjectFeaturesSliderPhoto: "[data-project-features-slider-photo]",
   ProjectFeaturesSliderText: "[data-project-features-slider-text]",
+  PorjectBlueprintsThumbs: "[data-project-blueprints-thumbs]",
 
   TelMaskInput: "input[type=tel]",
 

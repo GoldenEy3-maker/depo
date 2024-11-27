@@ -53,6 +53,14 @@ const projectFeaturesSliderText = new Swiper(
 projectFeaturesSliderPhoto.controller.control = projectFeaturesSliderText;
 projectFeaturesSliderText.controller.control = projectFeaturesSliderPhoto;
 
+const projectBlueprintsThumbs = new Swiper(
+  SelectorMap.PorjectBlueprintsThumbs,
+  {
+    loop: false,
+    slidesPerView: "auto",
+  },
+);
+
 initCloseContactsSidebarHander();
 initTelMask();
 
