@@ -1,0 +1,15 @@
+mixin intro
+  section(
+    class="relative col-span-full grid min-h-[max(calc(100svh-5rem),20rem)] grid-cols-subgrid"
+  )&attributes(attributes)
+    img(
+      class="absolute inset-0 h-full w-full object-cover brightness-75",
+      data-lazy-img="assets/img/intro.webp",
+      src="",
+      alt=""
+    )
+    div(
+      class="z-10 col-[main/span_20] self-center text-text-foreground sm:col-[main/span_12]"
+    )
+      h1(class="text-title uppercase") Тот самый застройщик
+      p(class="mt-2 ~text-base/lg") за&nbsp;чьи дома не&nbsp;стыдно перед родственниками
