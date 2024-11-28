@@ -1,0 +1,57 @@
+mixin team
+  section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
+    div(
+      class="col-[main] flex flex-wrap items-end justify-between gap-x-6 gap-y-2 ~mb-8/12"
+    )
+      h2(class="text-h2 font-medium text-brand") Наша команда
+    div(class="col-[main] grid grid-cols-3 gap-5")
+      article(class="relative flex h-[35rem] flex-col")
+        img(
+          class="absolute inset-0 h-full w-full object-cover",
+          data-lazy-img="assets/img/team-1.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 mr-11 mt-auto bg-brand px-6 py-10")
+          h3(class="text-h3 text-text-foreground") Лидерослав Управлянов
+          p(class="text-muted-background") Генеральный директор
+      article(class="relative flex h-[35rem] flex-col")
+        img(
+          class="absolute inset-0 h-full w-full object-cover",
+          data-lazy-img="assets/img/team-2.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 mr-11 mt-auto bg-brand px-6 py-10")
+          h3(class="text-h3 text-text-foreground") Проектирослав Квартиров
+          p(class="text-muted-background") Главный инженер
+      article(class="relative flex h-[35rem] flex-col")
+        img(
+          class="absolute inset-0 h-full w-full object-cover",
+          data-lazy-img="assets/img/team-3.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 mr-11 mt-auto bg-brand px-6 py-10")
+          h3(class="text-h3 text-text-foreground") Ремонтослав Интерьеров
+          p(class="text-muted-background") Дзиайнер интерьеров
+      article(class="relative flex h-[35rem] flex-col")
+        img(
+          class="absolute inset-0 h-full w-full object-cover",
+          data-lazy-img="assets/img/team-4.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 mr-11 mt-auto bg-brand px-6 py-10")
+          h3(class="text-h3 text-text-foreground") Квартирослав Продаванов
+          p(class="text-muted-background") Главный по продажам
+      article(class="relative flex h-[35rem] flex-col")
+        img(
+          class="absolute inset-0 h-full w-full object-cover",
+          data-lazy-img="assets/img/team-5.webp",
+          src="",
+          alt=""
+        )
+        div(class="z-10 mr-11 mt-auto bg-brand px-6 py-10")
+          h3(class="text-h3 text-text-foreground") Цветослав Поливанов
+          p(class="text-muted-background") Стажер
