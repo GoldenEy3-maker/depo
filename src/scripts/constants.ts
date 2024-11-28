@@ -3,11 +3,13 @@ export const SelectorMap = {
   ProjectSlider: "[data-project-slider]",
   ProjectFeaturesSliderPhoto: "[data-project-features-slider-photo]",
   ProjectFeaturesSliderText: "[data-project-features-slider-text]",
-  PorjectFeaturesSliderButtonNext: "[data-project-features-slider-button-next]",
-  PorjectFeaturesSliderButtonPrev: "[data-project-features-slider-button-prev]",
-  PorjectBlueprintsThumbs: "[data-project-blueprints-thumbs]",
-  PorjectBlueprintsTabSlider: "[data-project-blueprints-tab-slider]",
-  PorjectBlueprintsSlider: "[data-project-blueprints-slider]",
+  ProjectFeaturesSliderButtonNext: "[data-project-features-slider-button-next]",
+  ProjectFeaturesSliderButtonPrev: "[data-project-features-slider-button-prev]",
+  ProjectBlueprintsThumbs: "[data-project-blueprints-thumbs]",
+  ProjectBlueprintsTabSlider: "[data-project-blueprints-tab-slider]",
+  ProjectBlueprintsSlider: "[data-project-blueprints-slider]",
+  ProjectConstructionProgressSlider:
+    "[data-project-construction-progress-slider]",
 
   TelMaskInput: "input[type=tel]",
 

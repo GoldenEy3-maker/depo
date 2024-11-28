@@ -28,8 +28,8 @@ const projectFeaturesSliderPhoto = new Swiper(
   {
     speed: 600,
     navigation: {
-      nextEl: SelectorMap.PorjectFeaturesSliderButtonNext,
-      prevEl: SelectorMap.PorjectFeaturesSliderButtonPrev,
+      nextEl: SelectorMap.ProjectFeaturesSliderButtonNext,
+      prevEl: SelectorMap.ProjectFeaturesSliderButtonPrev,
     },
   },
 );
@@ -46,34 +46,36 @@ projectFeaturesSliderPhoto.controller.control = projectFeaturesSliderText;
 projectFeaturesSliderText.controller.control = projectFeaturesSliderPhoto;
 
 const projectBlueprintsThumbs = new Swiper(
-  SelectorMap.PorjectBlueprintsThumbs,
+  SelectorMap.ProjectBlueprintsThumbs,
   {
     slidesPerView: "auto",
   },
 );
 
-const projectBlueprintsTabSlider = new Swiper(
-  SelectorMap.PorjectBlueprintsTabSlider,
-  {
-    speed: 600,
-    simulateTouch: false,
-    thumbs: {
-      swiper: projectBlueprintsThumbs,
-    },
+new Swiper(SelectorMap.ProjectBlueprintsTabSlider, {
+  speed: 600,
+  simulateTouch: false,
+  thumbs: {
+    swiper: projectBlueprintsThumbs,
   },
-);
+});
 
-const projectBlueprintsSlider = new Swiper(
-  SelectorMap.PorjectBlueprintsSlider,
-  {
-    speed: 600,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    nested: true,
+new Swiper(SelectorMap.ProjectBlueprintsSlider, {
+  speed: 600,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
-);
+  nested: true,
+});
+
+new Swiper(SelectorMap.ProjectConstructionProgressSlider, {
+  speed: 600,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 initCloseContactsSidebarHander();
 initTelMask();

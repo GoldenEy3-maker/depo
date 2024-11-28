@@ -1,0 +1,70 @@
+mixin project-construction-progress-slider
+  section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
+    div(
+      class="col-[main] flex flex-wrap items-end justify-between gap-x-6 gap-y-2 ~mb-8/12"
+    )
+      h2(class="text-h2 font-medium text-brand") Ход строительства Дома
+        br
+        | на Кленова
+    div(
+      class="swiper col-span-full grid grid-cols-subgrid",
+      data-project-construction-progress-slider=""
+    )
+      div(class="swiper-wrapper col-span-full row-start-1")
+        div(class="swiper-slide main-container")
+          div(
+            class="relative col-span-full grid auto-rows-max grid-cols-subgrid ~min-h-[23rem]/[30rem] md:col-[main]"
+          )
+            div(class="z-10 col-[2/-2] py-8")
+              h3(class="text-h3 text-white") Апрель 2024
+              p(class="mt-2 text-text-foreground") 12 фото
+            img(
+              class="absolute inset-0 h-full w-full object-cover brightness-90",
+              data-lazy-img="assets/img/construction-progress-1.webp",
+              alt=""
+            )
+        div(class="swiper-slide main-container")
+          div(
+            class="relative col-span-full grid auto-rows-max grid-cols-subgrid ~min-h-[23rem]/[30rem] md:col-[main]"
+          )
+            div(class="z-10 col-[2/-2] py-8")
+              h3(class="text-h3 text-white") Апрель 2025
+              p(class="mt-2 text-text-foreground") 12 фото
+            img(
+              class="absolute inset-0 h-full w-full object-cover brightness-90",
+              data-lazy-img="assets/img/construction-progress-1.webp",
+              alt=""
+            )
+      div(
+        class="z-10 col-span-full row-start-1 flex items-center justify-end self-end md:col-[main]"
+      )
+        +button("default", "icon-lg")(
+          type="button",
+          class="swiper-button-prev max-sm:!h-16 max-sm:!w-16"
+        )
+          svg(
+            width="16",
+            height="26",
+            viewBox="0 0 16 26",
+            fill="none",
+            xmlns="http://www.w3.org/2000/svg"
+          )
+            path(
+              d="M9.53674e-07 10.4591V15.5409L16 26V21.0955L3.28572 13L16 4.90455V0L9.53674e-07 10.4591Z",
+              fill="currentColor"
+            )
+        +button("default", "icon-lg")(
+          type="button",
+          class="swiper-button-next max-sm:!h-16 max-sm:!w-16"
+        )
+          svg(
+            width="16",
+            height="26",
+            viewBox="0 0 16 26",
+            fill="none",
+            xmlns="http://www.w3.org/2000/svg"
+          )
+            path(
+              d="M16 10.4591V15.5409L0 26V21.0955L12.7143 13L0 4.90455V0L16 10.4591Z",
+              fill="currentColor"
+            )
