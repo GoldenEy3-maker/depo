@@ -1,7 +1,7 @@
 extends layouts/root.pug
 include ../components/sections/projects-slider
 include ../components/sections/short-about
-include ../components/sections/our-projects
+include ../components/sections/projects
 include ../components/sections/about
 include ../components/sections/news
 include ../components/sections/contacts
@@ -10,8 +10,10 @@ include ../components/sections/contact-form
 block content
   main(class="col-span-full grid grid-cols-subgrid space-y-[10rem]")
     +projects-slider
-    +short-about
-    +our-projects(class="!mt-[7.5rem]")
+    +short-about("Нам доверяют строить будущее!", "Мы &mdash;&mdash; компания &laquo;Депо&raquo;, строим жилые дома и&nbsp;коммерческие помещения в&nbsp;Барнауле. Наш приоритет&nbsp;&mdash; учитывать потребности клиентов и&nbsp;создавать объекты, которые им&nbsp;действительно нужны.")(
+      class="!mt-[7.5rem]"
+    )
+    +projects(class="!mt-[7.5rem]")
     +about
     +news
     +contacts
