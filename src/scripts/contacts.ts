@@ -2,7 +2,11 @@ import ymaps3, { LngLat, YMapLocationRequest } from "@yandex/ymaps3-types";
 import Swiper from "swiper/bundle";
 import { z } from "zod";
 import { SelectorMap } from "./constants";
-import { getAttrFromSelector, parseJSONWithQuotes } from "./utils";
+import {
+  getAttrFromSelector,
+  parseJSONWithQuotes,
+  setYMapLocation,
+} from "./utils";
 
 const contactsSlider = new Swiper(SelectorMap.ContactsSlider, {
   loop: false,
@@ -128,7 +132,14 @@ export async function initContactsMap() {
     button.append(img);
 
     button.addEventListener("click", () => {
-      contactsSlider.slideTo(index);
+      const isSlided = contactsSlider.slideTo(index);
+
+      if (!isSlided) {
+        button.ariaCurrent = "true";
+        _activeMapMarker = button;
+        setYMapLocation(map, markerData.coordinates);
+      }
+
       openContactsSidebar();
     });
 
@@ -159,9 +170,6 @@ export async function initContactsMap() {
       _activeMapMarker = markerTarget;
     }
 
-    map.setLocation({
-      center: coordinates,
-      duration: 600,
-    });
+    setYMapLocation(map, coordinates);
   });
 }
