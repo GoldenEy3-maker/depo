@@ -1,11 +1,9 @@
 include ../button
 
 mixin project-slider
-  section(
-    class="col-span-full grid min-h-[min(calc(100svh-5rem),62rem)] grid-cols-subgrid"
-  )
+  section(class="col-span-full grid min-h-[calc(100svh-5rem)] grid-cols-subgrid")
     div(
-      class="col-span-full grid min-h-[22.5rem] auto-rows-max grid-cols-subgrid grid-rows-[auto_1fr_auto] bg-muted-foreground ~pt-[2rem]/[3.25rem] md2:col-span-9 md2:min-h-0"
+      class="col-span-full grid min-h-[35rem] auto-rows-max grid-cols-subgrid grid-rows-[auto_1fr_auto] bg-muted-foreground ~pt-[2rem]/[3.25rem] md2:col-span-9 md2:min-h-0"
     )
       h1(class="col-[main/-2] text-h1 text-brand") Дом на Кленова
       ul(class="col-[main/-2] space-y-7 self-end pt-8")
@@ -52,7 +50,7 @@ mixin project-slider
       div(class="z-10 col-span-full flex items-center justify-end self-end")
         +button("default", "icon-lg")(
           type="button",
-          class="swiper-button-prev max-sm:!h-16 max-sm:!w-16"
+          class="swiper-button-prev max-sm:h-16 max-sm:w-16"
         )
           svg(
             width="16",
@@ -67,7 +65,7 @@ mixin project-slider
             )
         +button("default", "icon-lg")(
           type="button",
-          class="swiper-button-next max-sm:!h-16 max-sm:!w-16"
+          class="swiper-button-next max-sm:h-16 max-sm:w-16"
         )
           svg(
             width="16",
