@@ -2,7 +2,9 @@ include ../breadcrumbs
 
 mixin project-about
   section(class="col-span-full grid grid-cols-subgrid items-center")&attributes(attributes)
-    +breadcrumbs(class="col-[main] mb-12")
+    +breadcrumbs([{href: "/", label: "Главная"}, {href: "projects.html", label: "Проекты"}], "Дом на Кленова")(
+      class="col-[main] mb-12"
+    )
     h1(class="col-[main] mb-8 text-h1 text-brand md2:col-[main/span_8] md2:mb-0") Дом за&nbsp;который, не&nbsp;кринжово
     p(class="col-[main] text-basicL text-brand md2:col-[span_12/main]") Дом на&nbsp;Кленова&nbsp;&mdash; это уникальная возможность дышать свежим воздухом, наслаждаться прекрасными видами из&nbsp;окна на&nbsp;сквер, городские пейзажи. Для этого достаточно просто открыть окно своей квартиры, без надобности выезжать за&nbsp;пределы города.
     div(class="col-span-full mt-12 grid grid-cols-subgrid gap-4 sm:col-[main] sm:gap-5")
