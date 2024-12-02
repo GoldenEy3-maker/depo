@@ -29,8 +29,8 @@ export default {
         sans: ["Montserrat", ...fontFamily.sans],
       },
       fontSize: {
-        // 40px at 640px and 80px at 1536px
-        title: ["clamp(2.5rem, 0.7143rem + 4.4643vw, 5rem)", "1.3"],
+        // 36px at 640px and 80px at 1536px
+        title: ["clamp(2.25rem, 0.2857rem + 4.9107vw, 5rem)", "1.3"],
         // 32px at 640px and 48px at 1536px
         h1: ["clamp(2rem, 1.2857rem + 1.7857vw, 3rem)", "1.2"],
         // 24px at 640px and 36px at 1536px
