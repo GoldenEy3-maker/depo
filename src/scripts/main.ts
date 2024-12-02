@@ -78,6 +78,15 @@ new Swiper(SelectorMap.ProjectConstructionProgressSlider, {
   },
 });
 
+new Swiper(SelectorMap.FacilityDetailExamplesSlider, {
+  speed: 600,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 initCloseContactsSidebarHander();
 initTelMask();
 
