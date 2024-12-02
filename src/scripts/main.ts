@@ -53,8 +53,9 @@ const projectBlueprintsThumbs = new Swiper(
 );
 
 new Swiper(SelectorMap.ProjectBlueprintsTabSlider, {
-  speed: 600,
-  simulateTouch: false,
+  speed: 1,
+  allowTouchMove: false,
+  noSwiping: true,
   thumbs: {
     swiper: projectBlueprintsThumbs,
   },
