@@ -1,0 +1,11 @@
+extends ../layouts/root
+
+include ../../components/sections/facility-hero
+include ../../components/breadcrumbs
+
+block content
+  main(class="col-span-full grid grid-cols-subgrid space-y-[7.5rem]")
+    +facility-hero
+    +breadcrumbs([{href: '/', label: "Главная"}, {href: "project-1.html", label: "Дом на Кленова"}], "Коммерческие помещения")(
+      class="col-[main]"
+    )
