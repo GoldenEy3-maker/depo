@@ -1,9 +1,7 @@
 include ../button
 
 mixin projects-slider
-  section(
-    class="col-span-full grid min-h-[min(calc(100svh-5rem),62rem)] grid-cols-subgrid"
-  )
+  section(class="col-span-full grid min-h-[calc(100svh-5rem)] grid-cols-subgrid")
     div(
       class="swiper relative col-span-full grid min-h-[30rem] w-full grid-cols-subgrid overflow-hidden bg-muted md2:col-[span_17] md2:min-h-0 [&>*]:row-start-1",
       data-projects-slider=""
