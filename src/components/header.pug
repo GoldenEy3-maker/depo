@@ -33,28 +33,10 @@ mixin header
           )
       button(
         type="button",
-        class="col-start-[14] focus:outline-none focus-visible:ring focus-visible:ring-primary md2:hidden",
+        class="relative col-start-[14] h-[2.25rem] w-[2.3125rem] before:absolute before:inset-x-0 before:bottom-2 before:h-[2px] before:-translate-y-1/2 before:bg-black after:absolute after:inset-x-0 after:top-[0.625rem] after:h-[2px] after:-translate-y-1/2 after:bg-black focus:outline-none focus-visible:ring focus-visible:ring-primary sm:col-start-[13] md2:hidden",
         data-modal-trigger="burger"
       )
-        svg(
-          width="37",
-          height="36",
-          viewBox="0 0 37 36",
-          fill="none",
-          xmlns="http://www.w3.org/2000/svg"
-        )
-          g(clip-path="url(#clip0_626_905)")
-            path(d="M0.5 10H36.5", stroke="black", stroke-width="1.5")
-            path(d="M6.5 18H30.5", stroke="black", stroke-width="1.5")
-            path(d="M0.5 26H36.5", stroke="black", stroke-width="1.5")
-          defs
-            clipPath#clip0_626_905
-              rect(
-                width="36",
-                height="36",
-                fill="white",
-                transform="translate(0.5)"
-              )
+        span(class="absolute inset-x-1.5 top-1/2 h-[2px] -translate-y-1/2 bg-black")
       nav(
         class="col-[span_18/span_18] hidden items-center gap-x-6 md2:col-[span_14/span_14] md2:col-start-5 md2:flex"
       )
@@ -81,7 +63,7 @@ mixin header
       div(class="col-end-[main] text-right lg:col-[span_5/main]")
         a(
           href="tel:+78000000000",
-          class="text-lg font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary lg:text-secondary"
+          class="inline-flex text-lg font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary lg:text-secondary"
         ) 
           span(class="max-lg:hidden") +7 800 000 00 00
           span(class="lg:hidden")
