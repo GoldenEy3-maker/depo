@@ -2,10 +2,10 @@ include ../button
 
 mixin facility-detail-examples
   section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
-    div(
-      class="col-[main] flex flex-wrap items-end justify-between gap-x-6 gap-y-2 ~mb-8/12"
-    )
-      h2(class="text-h2 font-medium text-brand") Примеры готовых помещений
+    div(class="col-[main] grid grid-cols-subgrid items-end gap-y-2 ~mb-8/12 sm:gap-x-4")
+      h2(
+        class="col-span-full text-h2 font-medium text-brand sm:col-[span_12] md:col-span-10"
+      ) Примеры готовых помещений
     div(
       class="swiper col-span-full grid w-full grid-cols-subgrid md:~px-4/12",
       data-facility-detail-examples-slider=""
