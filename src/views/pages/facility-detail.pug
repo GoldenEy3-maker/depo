@@ -4,6 +4,10 @@ include ../../components/sections/facility-hero
 include ../../components/breadcrumbs
 include ../../components/sections/short-about
 include ../../components/sections/facility-detail-examples
+include ../../components/sections/genplan
+include ../../components/sections/facility-table-details
+include ../../components/sections/contacts
+include ../../components/sections/contact-form
 
 block content
   main(class="col-span-full grid grid-cols-subgrid space-y-[7.5rem]")
@@ -15,3 +19,7 @@ block content
       class="!mt-8"
     )
     +facility-detail-examples
+    +genplan
+    +facility-table-details
+    +contacts
+    +contact-form
