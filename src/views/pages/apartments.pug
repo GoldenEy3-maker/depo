@@ -1,0 +1,19 @@
+extends ../layouts/root
+
+include ../../components/breadcrumbs
+include ../../components/range-slider
+
+block content
+  main(class="col-span-full grid grid-cols-subgrid")
+    +breadcrumbs([{href: "/", label: "Главная"}, {href: 'project-detail.html', label: "Дом на Кленова"}], "Квартиры")(
+      class="col-[main] mt-12"
+    )
+    h1(class="col-[main] mt-20 text-h1 text-brand") Пора выбрать квартиру
+    div(class="col-[main] mt-20")
+      form(action="/", class="", method="get", class="flex items-end gap-x-14 gap-y-6")
+        +range-slider({label: "Площадь помещения, м²", id: "area-range", min: 23, max: 123, fields: [{placeholder: "от 23", name: "area-min"}, {placeholder: "от 123", name: "area-max"}]})(
+          class="basis-[15rem]"
+        )
+        +range-slider({label: "Стоимость, млн. руб.", id: "price-range", step: 0.1, min: 2.3, max: 12.3, fields: [{placeholder: "от 2,3", name: "price-min"}, {placeholder: "от 12,3", name: "price-max"}]})(
+          class="basis-[15rem]"
+        )

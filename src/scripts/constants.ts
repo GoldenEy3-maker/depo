@@ -25,6 +25,11 @@ export const SelectorMap = {
   FormControl: "[data-form-control]",
   FormControlMessage: "[data-form-control-message]",
 
+  RangeSlider: "[data-range-slider]",
+  RangeSliderTrack: "[data-range-slider-track]",
+  RangeSliderMin: "[data-range-slider-min]",
+  RangeSliderMax: "[data-range-slider-max]",
+
   LazyLoadingImg: "[data-lazy-img]",
   LazyLoadingMap: "[data-lazy-map]",
 } as const;

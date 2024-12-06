@@ -1,0 +1,76 @@
+mixin range-slider(opts)
+  div(data-range-slider="")&attributes(attributes)
+    label(for=opts.id, class="text-muted")!= opts.label
+    div(class="relative mt-3 grid grid-cols-2")
+      input(
+        type="number",
+        id=opts.id,
+        placeholder=opts.fields[0].placeholder,
+        value=opts.fields[0].value,
+        name=opts.fields[0].name,
+        min=opts.min,
+        max=opts.max,
+        inputmode="numeric",
+        autocomplete="off",
+        spellcheck="false",
+        class="h-14 rounded-none border border-muted text-center placeholder:text-muted-background focus:outline-none",
+        data-range-slider-min=""
+      )
+      input(
+        type="number",
+        placeholder=opts.fields[1].placeholder,
+        value=opts.fields[1].value,
+        name=opts.fields[1].name,
+        min=opts.min,
+        max=opts.max,
+        inputmode="numeric",
+        autocomplete="off",
+        spellcheck="false",
+        class="h-14 rounded-none border border-muted text-center placeholder:text-muted-background focus:outline-none",
+        data-range-slider-max=""
+      )
+      div(class="absolute inset-x-0 bottom-0 h-[2px]")
+        div(
+          class="absolute inset-x-0 inset-y-0 bg-secondary bg-[linear-gradient(to_right,theme('colors.muted.DEFAULT')_var(--min-percents),theme('colors.brand.DEFAULT')_var(--min-percents),theme('colors.brand.DEFAULT')_var(--max-percents),theme('colors.muted.DEFAULT')_var(--max-percents))]",
+          data-range-slider-track=""
+        )
+        if opts.fields[0].value
+          input(
+            type="range",
+            min=opts.min,
+            max=opts.max,
+            name=opts.fields[0].name,
+            value=opts.fields[0].value,
+            step=opts.step,
+            data-range-slider-min=""
+          )
+        else
+          input(
+            type="range",
+            min=opts.min,
+            name=opts.fields[0].name,
+            max=opts.max,
+            value=opts.min,
+            step=opts.step,
+            data-range-slider-min=""
+          )
+        if opts.fields[1].value
+          input(
+            type="range",
+            min=opts.min,
+            name=opts.fields[1].name,
+            max=opts.max,
+            step=opts.step,
+            value=opts.fields[1].value,
+            data-range-slider-max=""
+          )
+        else
+          input(
+            type="range",
+            min=opts.min,
+            max=opts.max,
+            value=opts.max,
+            step=opts.step,
+            name=opts.fields[1].name,
+            data-range-slider-max=""
+          )
