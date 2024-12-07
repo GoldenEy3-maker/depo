@@ -1,0 +1,17 @@
+mixin radio-tabs(opts)
+  div&attributes(attributes)
+    label(for=opts.options[0].id, class="text-muted")!= opts.label
+    div(class="mt-3 flex border border-muted")
+      each option in opts.options
+        div(class="flex-1")
+          input(
+            type="radio",
+            name=option.name,
+            id=option.id,
+            value=option.value,
+            class="peer absolute h-0 w-0 opacity-0"
+          )
+          label(
+            for=option.id,
+            class="flex h-14 cursor-pointer items-center justify-center peer-checked:bg-brand peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-brand"
+          )!= option.label

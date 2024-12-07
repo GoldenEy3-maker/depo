@@ -1,148 +1,75 @@
-import { SelectorMap } from "./constants";
-import { getAttrFromSelector } from "./utils";
-
-type InputsMap = Partial<
-  Record<"min" | "max", Partial<Record<"number" | "range", HTMLInputElement>>>
->;
+import noUiSlider from "nouislider";
 
 export function initRangeSlider() {
-  const rangerSliders = document.querySelectorAll<HTMLElement>(
-    SelectorMap.RangeSlider,
-  );
-  const minGap = 0;
+  const sliders = document.querySelectorAll("[data-range-slider]");
 
-  function updateTrack(track: HTMLElement, inputs: InputsMap) {
-    let minPercents = 0;
-    let maxPercents = 100;
-    let min = 0;
-    let max = 100;
-    const minRange = inputs.min?.range;
-    const maxRange = inputs.max?.range;
-
-    if (minRange) {
-      min = parseInt(minRange.min);
-      max = parseInt(minRange.max);
-
-      minPercents = ((minRange.valueAsNumber - min) / (max - min)) * 100;
-    }
-
-    if (maxRange) {
-      min = parseInt(maxRange.min);
-      max = parseInt(maxRange.max);
-
-      maxPercents = ((maxRange.valueAsNumber - min) / (max - min)) * 100;
-    }
-
-    track.style.setProperty("--min-percents", minPercents + "%");
-    track.style.setProperty("--max-percents", maxPercents + "%");
-  }
-
-  if (rangerSliders.length)
-    rangerSliders.forEach((rangeSlider) => {
-      const track = rangeSlider.querySelector<HTMLElement>(
-        SelectorMap.RangeSliderTrack,
+  if (sliders.length)
+    sliders.forEach((slider) => {
+      const minInput = slider.querySelector<HTMLInputElement>(
+        "[data-range-slider-min]",
       );
-      const inputs = Array.from(rangeSlider.querySelectorAll("input"));
+      const maxInput = slider.querySelector<HTMLInputElement>(
+        "[data-range-slider-max]",
+      );
+      const ui = slider.querySelector<HTMLElement>("[data-range-slider-ui]");
 
-      const inputsMap = inputs.reduce<InputsMap>((acc, input) => {
-        const isMin =
-          input.getAttribute(
-            getAttrFromSelector(SelectorMap.RangeSliderMin),
-          ) !== null;
-        const isMax =
-          input.getAttribute(
-            getAttrFromSelector(SelectorMap.RangeSliderMax),
-          ) !== null;
+      if (!minInput || !maxInput || !ui) return;
 
-        if (isMin) {
-          if ("min" in acc) acc.min![input.type] = input;
-          else acc.min = { [input.type]: input };
-        }
-
-        if (isMax) {
-          if ("max" in acc) acc.max![input.type] = input;
-          else acc.max = { [input.type]: input };
-        }
-
-        return acc;
-      }, {});
-
-      if (track) updateTrack(track, inputsMap);
-
-      rangeSlider.addEventListener("change", (event) => {
-        const target = event.target as HTMLInputElement;
-
-        if (target.type === "number") {
-          const isMin = inputsMap.min?.number === target;
-          const isMax = inputsMap.max?.number === target;
-
-          if (
-            isMin &&
-            inputsMap.max?.number?.value &&
-            target.valueAsNumber > inputsMap.max.number.valueAsNumber
-          ) {
-            target.value = String(inputsMap.max.number.valueAsNumber);
-          }
-
-          if (
-            isMax &&
-            inputsMap.min?.number?.value &&
-            target.valueAsNumber < inputsMap.min.number.valueAsNumber
-          ) {
-            target.value = String(inputsMap.min.number.valueAsNumber);
-          }
-
-          if (target.valueAsNumber > parseFloat(target.max)) {
-            target.value = target.max;
-          }
-
-          if (target.valueAsNumber < parseFloat(target.min)) {
-            target.value = target.min;
-          }
-
-          const range = inputsMap[isMin ? "min" : isMax ? "max" : ""]?.range;
-
-          if (range) {
-            if (target.value) {
-              range.value = target.value;
-            } else if (inputsMap.min?.range === range) {
-              range.value = target.min;
-            } else if (inputsMap.max?.range === range) {
-              range.value = target.max;
-            }
-
-            if (track) updateTrack(track, inputsMap);
-          }
-        }
+      const noUi = noUiSlider.create(ui, {
+        start: [Number(minInput.min), Number(maxInput.max)],
+        connect: true,
+        range: {
+          min: Number(minInput.min),
+          max: Number(maxInput.max),
+        },
+        step: Number(minInput.step),
       });
 
-      rangeSlider.addEventListener("input", (event) => {
-        const target = event.target as HTMLInputElement;
+      noUi.on("slide", (values) => {
+        const [min, max] = values;
 
-        if (target.type === "range") {
-          const isMin = inputsMap.min?.range === target;
-          const isMax = inputsMap.max?.range === target;
+        minInput.value = Number(min).toFixed(
+          minInput.step.split(".")[1]?.length ?? 0,
+        );
+        maxInput.value = Number(max).toFixed(
+          maxInput.step.split(".")[1]?.length ?? 0,
+        );
+      });
 
-          if (isMin) {
-            if (
-              inputsMap.max?.range &&
-              inputsMap.max.range.valueAsNumber - target.valueAsNumber <= minGap
-            )
-              target.value = String(inputsMap.max.range.valueAsNumber - minGap);
-          }
-          if (
-            isMax &&
-            inputsMap.min?.range &&
-            target.valueAsNumber - inputsMap.min.range.valueAsNumber <= minGap
-          ) {
-            target.value = String(inputsMap.min.range.valueAsNumber + minGap);
-          }
-
-          const number = inputsMap[isMin ? "min" : isMax ? "max" : ""]?.number;
-
-          if (number) number.value = target.value;
-          if (track) updateTrack(track, inputsMap);
+      minInput.addEventListener("change", () => {
+        if (
+          minInput.value &&
+          maxInput.value &&
+          minInput.valueAsNumber > maxInput.valueAsNumber
+        ) {
+          minInput.value = maxInput.value;
         }
+
+        if (minInput.valueAsNumber < Number(minInput.min)) {
+          minInput.value = minInput.min;
+        }
+
+        if (minInput.value)
+          noUi.set([minInput.valueAsNumber, maxInput.valueAsNumber]);
+        else noUi.set([minInput.min, maxInput.valueAsNumber]);
+      });
+
+      maxInput.addEventListener("change", () => {
+        if (
+          maxInput.value &&
+          minInput.value &&
+          maxInput.valueAsNumber < minInput.valueAsNumber
+        ) {
+          maxInput.value = minInput.value;
+        }
+
+        if (maxInput.valueAsNumber > Number(maxInput.max)) {
+          maxInput.value = maxInput.max;
+        }
+
+        if (maxInput.value)
+          noUi.set([minInput.valueAsNumber, maxInput.valueAsNumber]);
+        else noUi.set([maxInput.valueAsNumber, maxInput.max]);
       });
     });
 }
