@@ -5,6 +5,7 @@ import { handleSubmitForm } from "./forms";
 import { SelectorMap } from "./constants";
 import { initLazyLoading } from "./lazy-loading";
 import { initRangeSlider } from "./range-slider";
+import { initCustomSelect } from "./custom-select";
 
 initLazyLoading();
 
@@ -91,5 +92,6 @@ new Swiper(SelectorMap.FacilityDetailExamplesSlider, {
 initCloseContactsSidebarHander();
 initTelMask();
 initRangeSlider();
+initCustomSelect();
 
 document.addEventListener("submit", handleSubmitForm);

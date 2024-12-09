@@ -27,7 +27,7 @@
     @apply bg-muted
 
   .noUi-connect
-    @apply bg-brand
+    @apply bg-secondary
 
   .noUi-horizontal .noUi-handle
     height: 0.625rem
@@ -55,7 +55,7 @@
       border-radius: 50%
       height: auto
       scale: 0
-      @apply bg-brand/10 transition-all duration-300
+      @apply bg-secondary/10 transition-all duration-300
 
     &:hover
       &::before
@@ -77,6 +77,49 @@
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%)
     @apply bg-secondary
 
+  .choices
+    margin-bottom: 0
+    z-index: 20
+
+  .choices__inner
+    background-color: transparent
+    border: 0
+    border-radius: 0
+    padding: 0
+    font-weight: 500
+    min-height: 0
+    height: 3rem
+    display: inline-flex
+    align-items: center
+    @apply text-basicL text-primary
+
+  .choices[data-type*=select-one] .choices__inner
+    padding-bottom: 0
+
+  .choices[data-type*=select-one]:after
+    border: 0
+    height: 0.625rem
+    width: 1rem
+    right: 0
+    margin-top: 0 !important
+    translate: 0 -50%
+    mask: url('assets/img/arrow-down.svg')
+    @apply bg-primary
+
+  .choices.is-open[data-type*=select-one]:after
+    rotate: 180deg
+
+  .choices__list--single
+    padding: 0 1.875rem 0 0
+    padding-left: 0
+
+  .choices__list
+    border-radius: 0 !important
+    border-color: theme('colors.muted.DEFAULT') !important
+
+  .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item
+    font-size: 1rem
+
 @layer utilities
   .main-container
     display: grid
@@ -87,3 +130,47 @@
     width: 100%
     max-width: 120rem
     margin-inline: auto
+
+@layer components
+  .button
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    height: 4rem
+    padding-inline: 3rem
+    @apply bg-primary text-text-foreground
+
+    &:disabled
+      @apply bg-muted
+
+    &:focus
+      outline: none
+
+    &:focus-visible
+      @apply ring ring-primary
+
+    &--ghost
+      background-color: transparent
+      @apply text-primary
+
+    &--outlined
+      background-color: transparent
+      @apply border border-primary text-secondary
+
+    &--lg
+      height: 5.125rem
+
+    &--icon
+      width: 4rem
+      height: 4rem
+      padding: 0
+
+      &-lg
+        width: 5.125rem
+        height: 5.125rem
+        padding: 0
+
+      &-md
+        width: 2rem
+        height: 2rem
+        padding: 0

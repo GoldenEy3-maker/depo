@@ -30,6 +30,8 @@ export const SelectorMap = {
   RangeSliderMin: "[data-range-slider-min]",
   RangeSliderMax: "[data-range-slider-max]",
 
+  CustomSelect: "[data-custom-select]",
+
   LazyLoadingImg: "[data-lazy-img]",
   LazyLoadingMap: "[data-lazy-map]",
 } as const;
