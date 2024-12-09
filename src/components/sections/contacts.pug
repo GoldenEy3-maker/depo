@@ -1,5 +1,3 @@
-include ../button
-
 mixin contacts(removeHead=false)
   section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
     if !removeHead
@@ -12,7 +10,7 @@ mixin contacts(removeHead=false)
         div(
           class="col-span-full justify-end sm:col-[span_7/-1] sm:flex md2:col-[span_5/-1]"
         )
-          +button("ghost", "defalt", true)(href="contacts.html", class="h-auto !px-0")
+          a(href="contacts.html", class="button button--ghost h-auto px-0")
             span Контакты
             span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
               svg(
@@ -33,9 +31,9 @@ mixin contacts(removeHead=false)
       data-contacts-sidebar="",
       aria-expanded="true"
     )
-      +button("default", "icon")(
+      button(
         type="button",
-        class="group absolute right-0 z-10 !h-auto !w-auto !bg-muted-foreground py-[0.625rem] !text-brand ~top-[1.375rem]/[1.875rem] ~pr-[1.625rem]/[3.625rem] ~pl-4/12 md:left-full md:top-0 md:!p-0 md:~md:!~h-[3.375rem]/16 md:~md:!~w-[3.375rem]/16",
+        class="button button--icon group absolute right-0 z-10 h-auto w-auto bg-muted-foreground py-[0.625rem] text-brand ~top-[1.375rem]/[1.875rem] ~pr-[1.625rem]/[3.625rem] ~pl-4/12 md:left-full md:top-0 md:p-0 md:~md:~h-[3.375rem]/16 md:~md:~w-[3.375rem]/16",
         data-contacts-sidebar-close=""
       )
         span(
@@ -87,9 +85,9 @@ mixin contacts(removeHead=false)
                 ) +7 900 000 00 00
                 span(class="text-muted") Телефон
             footer(class="~pt-6/7")
-              +button("ghost", "defalt", true)(
+              a(
                 href="project-detail.html",
-                class="h-auto !px-0 font-medium"
+                class="button button--ghost h-auto px-0 font-medium"
               )
                 span Смотреть о доме
                 span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
@@ -125,9 +123,9 @@ mixin contacts(removeHead=false)
                 ) +7 900 000 00 00
                 span(class="text-muted") Телефон
             footer(class="~pt-6/7")
-              +button("ghost", "defalt", true)(
+              a(
                 href="project-detail.html",
-                class="h-auto !px-0 font-medium"
+                class="button button--ghost h-auto px-0 font-medium"
               )
                 span Смотреть о доме
                 span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
@@ -163,9 +161,9 @@ mixin contacts(removeHead=false)
                 ) +7 900 000 00 00
                 span(class="text-muted") Телефон
             footer(class="~pt-6/7")
-              +button("ghost", "defalt", true)(
+              a(
                 href="project-detail.html",
-                class="h-auto !px-0 font-medium"
+                class="button button--ghost h-auto px-0 font-medium"
               )
                 span Смотреть о доме
                 span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
@@ -202,9 +200,9 @@ mixin contacts(removeHead=false)
                 ) +7 900 000 00 00
                 span(class="text-muted") Телефон
             footer(class="~pt-6/7")
-              +button("ghost", "defalt", true)(
+              a(
                 href="project-detail.html",
-                class="h-auto !px-0 font-medium"
+                class="button button--ghost h-auto px-0 font-medium"
               )
                 span Смотреть о доме
                 span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")

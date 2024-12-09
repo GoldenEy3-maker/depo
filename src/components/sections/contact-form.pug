@@ -1,5 +1,3 @@
-include ../button
-
 mixin contact-form
   section(class="col-span-full !mt-[7.5rem] grid grid-cols-subgrid")&attributes(attributes)
     div(class="col-[main] grid grid-cols-subgrid items-end gap-y-2 ~mb-8/12 sm:gap-x-4")
@@ -43,7 +41,7 @@ mixin contact-form
             class="text-red-500 peer-aria-[invalid=true]:mt-2",
             data-form-control-message=""
           ) 
-        +button("default", "default")(type="submit") Оставить заявку
+        button(type="submit", class="button") Оставить заявку
       p(
         class="col-span-full mt-4 text-muted-background md:col-[span_18] md2:col-span-12"
       ) При нажатии на&nbsp;кнопку &laquo;Оставить заявку&raquo; вы&nbsp;соглашаетесь с&nbsp;нашей политикой обработки персональных данных

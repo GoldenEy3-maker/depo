@@ -1,5 +1,3 @@
-include ../button
-
 mixin about(removeHead=false)
   section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
     if !removeHead
@@ -12,7 +10,7 @@ mixin about(removeHead=false)
         div(
           class="col-span-full justify-end sm:col-[span_7/-1] sm:flex md2:col-[span_5/-1]"
         )
-          +button("ghost", "default", true)(href="about.html", class="h-auto !px-0")
+          a(href="about.html", class="button button--ghost h-auto px-0")
             span О застройщике
             span(class="ml-3 ~h-[0.875rem]/4 ~w-4/[1.125rem]")
               svg(

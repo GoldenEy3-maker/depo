@@ -3,6 +3,7 @@ extends ../layouts/root
 include ../../components/breadcrumbs
 include ../../components/range-slider
 include ../../components/radio-tabs
+include ../../components/apartments-item
 
 block content
   main(class="col-span-full grid grid-cols-subgrid")
@@ -21,3 +22,32 @@ block content
         +radio-tabs({label: "Количество комнат", options: [{label: "C", value: "C", id: "amout-of-rooms-c", name: "amout-of-rooms"}, {label: "1K", value: "1K", id: "amout-of-rooms-1K", name: "amout-of-rooms"}, {label: "2K", value: "2K", id: "amout-of-rooms-2K", name: "amout-of-rooms"}, {label: "3K", value: "3K", id: "amout-of-rooms-3K", name: "amout-of-rooms"}]})(
           class="basis-80"
         )
+        div(class="ml-auto")
+          button(type="submit", class="button h-14") 43 квартиры
+      hr(class="mt-14 bg-muted-background")
+      div(class="mt-10 flex items-center justify-between gap-x-14 gap-y-6")
+        select(name="sort", data-custom-select="")
+          option(value="poor", selected="") Сначала недорогие
+          option(value="rich") Сначала дорогие
+          option(value="big") Сначала большие
+          option(value="small") Сначала маленькие
+        button(
+          type="button",
+          class="button button--ghost h-12 gap-x-3 p-0 text-secondary"
+        )
+          svg(
+            width="18",
+            height="24",
+            viewBox="0 0 18 24",
+            fill="none",
+            xmlns="http://www.w3.org/2000/svg"
+          )
+            path(
+              d="M0 24V2.66667C0 1.93333 0.252 1.30578 0.756 0.784C1.26 0.262222 1.86514 0.000888889 2.57143 0H15.4286C16.1357 0 16.7413 0.261333 17.2453 0.784C17.7493 1.30667 18.0009 1.93422 18 2.66667V24L9 20L0 24ZM2.57143 19.9333L9 17.0667L15.4286 19.9333V2.66667H2.57143V19.9333Z",
+              fill="currentColor"
+            )
+          span Избранное
+      div(class="mt-7 grid grid-cols-[repeat(auto-fill,minmax(30rem,1fr))]")
+        +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
+        +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
+        +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
