@@ -1,5 +1,5 @@
 mixin apartments-item(opts)
-  article(class="relative border border-muted px-2")&attributes(attributes)
+  article(class="relative border-b border-r border-muted px-2")&attributes(attributes)
     a(href="apartments-detail.html", class="absolute inset-0 z-10")
     div(class="relative h-[21.25rem]")
       button(
@@ -16,12 +16,7 @@ mixin apartments-item(opts)
             d="M0 24V2.66667C0 1.93333 0.252 1.30578 0.756 0.784C1.26 0.262222 1.86514 0.000888889 2.57143 0H15.4286C16.1357 0 16.7413 0.261333 17.2453 0.784C17.7493 1.30667 18.0009 1.93422 18 2.66667V24L9 20L0 24ZM2.57143 19.9333L9 17.0667L15.4286 19.9333V2.66667H2.57143V19.9333Z",
             fill="currentColor"
           )
-      img(
-        class="absolute inset-0 h-full w-full px-7 py-5",
-        src="",
-        alt="",
-        data-lazy-img=opts.img
-      )
+      img(class="mx-auto h-full px-7 py-5", src="", alt="", data-lazy-img=opts.img)
     div(class="mt-4 px-5 pb-6")
       div(
         class="flex items-center justify-between gap-x-4 gap-y-2 text-basicS text-muted"

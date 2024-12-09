@@ -11,21 +11,22 @@ block content
       class="col-[main] mt-12"
     )
     h1(class="col-[main] mt-20 text-h1 text-brand") Пора выбрать квартиру
-    div(class="col-[main] mt-20")
-      form(action="/", class="", method="get", class="flex items-end gap-x-14 gap-y-6")
+    div(class="@container col-[main] mt-20")
+      form(action="/", class="", method="get", class="flex flex-wrap items-end gap-x-14 gap-y-6")
         +range-slider({label: "Площадь помещения, м²", id: "area-range", step: 1, min: 23, max: 123, fields: [{placeholder: "от 23", name: "area-min"}, {placeholder: "от 123", name: "area-max"}]})(
           class="basis-60"
         )
         +range-slider({label: "Стоимость, млн. руб.", id: "price-range", step: 0.1, min: 2.3, max: 12.3, fields: [{placeholder: "от 2,3", name: "price-min"}, {placeholder: "от 12,3", name: "price-max"}]})(
           class="basis-60"
         )
-        +radio-tabs({label: "Количество комнат", options: [{label: "C", value: "C", id: "amout-of-rooms-c", name: "amout-of-rooms"}, {label: "1K", value: "1K", id: "amout-of-rooms-1K", name: "amout-of-rooms"}, {label: "2K", value: "2K", id: "amout-of-rooms-2K", name: "amout-of-rooms"}, {label: "3K", value: "3K", id: "amout-of-rooms-3K", name: "amout-of-rooms"}]})(
-          class="basis-80"
-        )
-        div(class="ml-auto")
+        div(class="basis-full md:basis-1/2 xl:basis-80")
+          +radio-tabs({label: "Количество комнат", options: [{label: "C", value: "C", id: "amout-of-rooms-c", name: "amout-of-rooms"}, {label: "1K", value: "1K", id: "amout-of-rooms-1K", name: "amout-of-rooms"}, {label: "2K", value: "2K", id: "amout-of-rooms-2K", name: "amout-of-rooms"}, {label: "3K", value: "3K", id: "amout-of-rooms-3K", name: "amout-of-rooms"}]})(
+            class="max-w-80"
+          )
+        div(class="md:ml-auto")
           button(type="submit", class="button h-14") 43 квартиры
       hr(class="mt-14 bg-muted-background")
-      div(class="mt-10 flex items-center justify-between gap-x-14 gap-y-6")
+      div(class="mt-10 flex flex-wrap items-center justify-between gap-x-14 gap-y-2")
         select(name="sort", data-custom-select="")
           option(value="poor", selected="") Сначала недорогие
           option(value="rich") Сначала дорогие
@@ -47,7 +48,12 @@ block content
               fill="currentColor"
             )
           span Избранное
-      div(class="mt-7 grid grid-cols-[repeat(auto-fill,minmax(30rem,1fr))]")
+      div(
+        class="sm:@[82.5rem]:grid-cols-[repeat(auto-fill,minmax(27.5rem,1fr))] mt-7 grid grid-cols-1 border-l border-t border-muted sm:grid-cols-[repeat(auto-fill,minmax(22.5rem,1fr))]"
+      )
+        +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
+        +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
+        +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})

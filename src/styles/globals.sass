@@ -80,6 +80,7 @@
   .choices
     margin-bottom: 0
     z-index: 20
+    // overflow: visible
 
   .choices__inner
     background-color: transparent
@@ -113,12 +114,24 @@
     padding: 0 1.875rem 0 0
     padding-left: 0
 
-  .choices__list
+  .choices__list--dropdown, .choices__list[aria-expanded]
+    max-width: 300px
     border-radius: 0 !important
-    border-color: theme('colors.muted.DEFAULT') !important
+    border-color: theme('colors.muted.DEFAULT')
+    // opacity: 0
+    // visibility: hidden
+    // translate: 0 -20px
+    // display: block
+    // transition: 300ms ease
+
+  // .choices__list--dropdown, .choices__list[aria-expanded='true']
+  //   opacity: 1
+  //   visibility: visible
+  //   translate: 0
 
   .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item
     font-size: 1rem
+    width: 100%
 
 @layer utilities
   .main-container

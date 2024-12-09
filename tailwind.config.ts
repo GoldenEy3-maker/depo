@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import fluid, { extract, screens, fontSize } from "fluid-tailwind";
+import containerQuery from "@tailwindcss/container-queries";
 
 export default {
   content: {
@@ -86,5 +87,6 @@ export default {
     fluid({
       checkSC144: false,
     }),
+    containerQuery,
   ],
 } satisfies Config;
