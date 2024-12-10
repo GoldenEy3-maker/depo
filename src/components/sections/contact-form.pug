@@ -1,9 +1,9 @@
 mixin contact-form
   section(class="col-span-full !mt-[7.5rem] grid grid-cols-subgrid")&attributes(attributes)
-    div(class="col-[main] grid grid-cols-subgrid items-end gap-y-2 ~mb-8/12 sm:gap-x-4")
-      h2(
-        class="col-span-full text-h2 font-medium text-brand sm:col-[span_12] md:col-span-10"
-      ) Возникли вопросы или&nbsp;предложения?
+    div(
+      class="col-[main] flex flex-wrap items-end justify-between gap-x-4 gap-y-2 ~mb-8/12"
+    )
+      h2(class="max-w-[31.25rem] text-h2 font-medium text-brand") Возникли вопросы или&nbsp;предложения?
     form(
       action="/",
       method="POST",

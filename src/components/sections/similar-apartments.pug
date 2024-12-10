@@ -2,13 +2,13 @@ include ../../components/apartments-item
 
 mixin similar-apartments
   section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
-    div(class="col-[main] grid grid-cols-subgrid items-end gap-y-2 ~mb-8/12 sm:gap-x-4")
-      h2(
-        class="col-span-full text-h2 font-medium text-brand sm:col-[span_12] md:col-span-10"
-      ) Похожие квартиры
-    div(class="@container col-[main]")
+    div(
+      class="col-[main] flex flex-wrap items-end justify-between gap-x-4 gap-y-2 ~mb-8/12"
+    )
+      h2(class="max-w-[31.25rem] text-h2 font-medium text-brand") Похожие квартиры
+    div(class="col-[main] @container")
       div(
-        class="sm:@[85rem]:grid-cols-[repeat(auto-fill,minmax(28rem,1fr))] col-[main] grid grid-cols-1 border-l border-t border-muted sm:grid-cols-[repeat(auto-fill,minmax(22.5rem,1fr))]"
+        class="col-[main] grid grid-cols-1 border-l border-t border-muted sm:grid-cols-[repeat(auto-fill,minmax(22.5rem,1fr))] sm:@[85rem]:grid-cols-[repeat(auto-fill,minmax(28rem,1fr))]"
       )
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
