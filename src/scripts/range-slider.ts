@@ -16,7 +16,10 @@ export function initRangeSlider() {
       if (!minInput || !maxInput || !ui) return;
 
       const noUi = noUiSlider.create(ui, {
-        start: [Number(minInput.min), Number(maxInput.max)],
+        start: [
+          Number(minInput.value) || Number(minInput.min),
+          Number(maxInput.value) || Number(maxInput.max),
+        ],
         connect: true,
         range: {
           min: Number(minInput.min),
