@@ -33,10 +33,12 @@ mixin header
           )
       button(
         type="button",
-        class="relative col-start-[14] h-[2.25rem] w-[2.3125rem] before:absolute before:inset-x-0 before:bottom-2 before:h-[2px] before:-translate-y-1/2 before:bg-black after:absolute after:inset-x-0 after:top-[0.625rem] after:h-[2px] after:-translate-y-1/2 after:bg-black focus:outline-none focus-visible:ring focus-visible:ring-primary sm:col-start-[13] md2:hidden",
-        data-modal-trigger="burger"
+        class="group relative col-start-[14] h-[2.25rem] w-[2.3125rem] transition-all duration-300 before:absolute before:inset-x-0 before:bottom-2 before:h-[2px] before:-translate-y-1/2 before:bg-black before:transition-all before:duration-300 after:absolute after:inset-x-0 after:top-[0.625rem] after:h-[2px] after:-translate-y-1/2 after:bg-black after:transition-all after:duration-300 focus:outline-none focus-visible:ring focus-visible:ring-primary aria-[current=true]:rotate-180 aria-[current=true]:before:bottom-4 aria-[current=true]:before:-rotate-45 aria-[current=true]:after:top-[1.125rem] aria-[current=true]:after:rotate-45 sm:col-start-[13] md2:hidden",
+        data-burger-trigger=""
       )
-        span(class="absolute inset-x-1.5 top-1/2 h-[2px] -translate-y-1/2 bg-black")
+        span(
+          class="absolute inset-x-1.5 top-1/2 h-[2px] -translate-y-1/2 bg-black transition-all duration-300 group-aria-[current=true]:opacity-0"
+        )
       nav(
         class="col-[span_18/span_18] hidden items-center gap-x-6 md2:col-[span_14/span_14] md2:col-start-5 md2:flex"
       )

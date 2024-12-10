@@ -1,4 +1,5 @@
 include ../../components/header
+include ../../components/burger
 include ../../components/footer
 include ../../components/call-dialog
 
@@ -16,6 +17,7 @@ html(lang="ru")
   body
     div(class="main-container max-container min-h-svh grid-rows-[auto_1fr_auto]")
       +header
+      +burger
       block content
         main content
       +footer

@@ -7,6 +7,7 @@ import { initLazyLoading } from "./lazy-loading";
 import { initRangeSlider } from "./range-slider";
 import { initCustomSelect } from "./custom-select";
 import { initDialog } from "./dialogs";
+import { initBurger } from "./burger";
 
 initLazyLoading();
 
@@ -120,5 +121,6 @@ initTelMask();
 initRangeSlider();
 initCustomSelect();
 initDialog();
+initBurger();
 
 document.addEventListener("submit", handleSubmitForm);

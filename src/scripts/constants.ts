@@ -40,4 +40,7 @@ export const SelectorMap = {
 
   DialogTrigger: "[data-dialog]",
   DialogClose: "[data-dialog-close]",
+
+  BurgerTrigger: "[data-burger-trigger]",
+  Burger: "[data-burger]",
 } as const;

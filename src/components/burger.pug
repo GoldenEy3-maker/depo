@@ -1,0 +1,15 @@
+mixin burger
+  div(
+    class="fixed inset-x-0 top-0 z-40 h-svh bg-background pt-24 transition-all duration-300 aria-hidden:invisible aria-hidden:-translate-y-5 aria-hidden:opacity-0",
+    aria-hidden="true",
+    data-burger=""
+  )
+    div(class="max-container main-container")
+      nav(
+        class="col-[main/-1] flex max-h-[calc(100svh-6rem)] flex-col items-start gap-5 overflow-auto pb-4 text-h2 text-brand"
+      )
+        a(href="projects.html") Проекты
+        a(href="apartments.html") Квартиры
+        a(href="about.html") О застройщике
+        a(href="#") Медиа
+        a(href="contacts.html") Контакты
