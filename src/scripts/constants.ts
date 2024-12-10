@@ -37,4 +37,7 @@ export const SelectorMap = {
 
   LazyLoadingImg: "[data-lazy-img]",
   LazyLoadingMap: "[data-lazy-map]",
+
+  DialogTrigger: "[data-dialog]",
+  DialogClose: "[data-dialog-close]",
 } as const;

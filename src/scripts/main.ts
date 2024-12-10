@@ -6,6 +6,7 @@ import { SelectorMap } from "./constants";
 import { initLazyLoading } from "./lazy-loading";
 import { initRangeSlider } from "./range-slider";
 import { initCustomSelect } from "./custom-select";
+import { initDialog } from "./dialogs";
 
 initLazyLoading();
 
@@ -51,7 +52,12 @@ const projectBlueprintsThumbs = new Swiper(
   SelectorMap.ProjectBlueprintsThumbs,
   {
     slidesPerView: "auto",
-    allowTouchMove: false,
+    allowTouchMove: true,
+    breakpoints: {
+      768: {
+        allowTouchMove: false,
+      },
+    },
   },
 );
 
@@ -113,5 +119,6 @@ initCloseContactsSidebarHander();
 initTelMask();
 initRangeSlider();
 initCustomSelect();
+initDialog();
 
 document.addEventListener("submit", handleSubmitForm);
