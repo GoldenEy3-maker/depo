@@ -51,6 +51,7 @@ const projectBlueprintsThumbs = new Swiper(
   SelectorMap.ProjectBlueprintsThumbs,
   {
     slidesPerView: "auto",
+    allowTouchMove: false,
   },
 );
 
@@ -86,6 +87,24 @@ new Swiper(SelectorMap.FacilityDetailExamplesSlider, {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+});
+
+const apartmentSliderThumbs = new Swiper(SelectorMap.ApartmentSliderThumbs, {
+  slidesPerView: "auto",
+  nested: true,
+  allowTouchMove: true,
+  breakpoints: {
+    768: {
+      allowTouchMove: false,
+    },
+  },
+});
+
+new Swiper(SelectorMap.ApartmentSlider, {
+  speed: 600,
+  thumbs: {
+    swiper: apartmentSliderThumbs,
   },
 });
 

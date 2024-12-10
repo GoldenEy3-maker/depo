@@ -11,6 +11,9 @@ export const SelectorMap = {
   ProjectConstructionProgressSlider:
     "[data-project-construction-progress-slider]",
 
+  ApartmentSlider: "[data-apartment-slider]",
+  ApartmentSliderThumbs: "[data-apartment-slider-thumbs]",
+
   FacilityDetailExamplesSlider: "[data-facility-detail-examples-slider]",
 
   TelMaskInput: "input[type=tel]",
