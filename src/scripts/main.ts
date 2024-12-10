@@ -105,6 +105,7 @@ new Swiper(SelectorMap.ApartmentSlider, {
   speed: 600,
   thumbs: {
     swiper: apartmentSliderThumbs,
+    autoScrollOffset: 1,
   },
 });
 

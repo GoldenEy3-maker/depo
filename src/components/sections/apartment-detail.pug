@@ -1,6 +1,6 @@
 mixin apartment-detail
-  section(class="col-[main] grid grid-cols-subgrid")&attributes(attributes)
-    div(class="col-span-full flex flex-wrap items-end justify-between gap-x-6 gap-y-4")
+  section(class="col-span-full grid grid-cols-subgrid")&attributes(attributes)
+    div(class="col-[main] flex flex-wrap items-end justify-between gap-x-6 gap-y-4")
       h1(class="text-h1 text-brand") 1 комнатная
         | &nbsp;
         span(class="text-secondary") 123 м²
@@ -25,7 +25,7 @@ mixin apartment-detail
               stroke-linecap="round",
               stroke-linejoin="round"
             )
-    div(class="col-span-full mt-[4.5rem] grid grid-cols-subgrid gap-y-8")
+    div(class="col-[main] mt-[4.5rem] grid grid-cols-subgrid gap-y-8")
       div(
         class="swiper relative col-span-full grid w-full grid-cols-1 md2:col-[span_14]",
         data-apartment-slider=""
@@ -47,21 +47,21 @@ mixin apartment-detail
               fill="#1F5372"
             )
         div(class="swiper-wrapper col-start-1 row-start-1")
-          div(class="swiper-slide relative h-[32.5rem]")
+          div(class="swiper-slide relative ~h-[25rem]/[32.5rem]")
             img(
               class="mx-auto h-full pb-14",
               data-lazy-img="assets/img/blueprint.webp",
               src="",
               alt=""
             )
-          div(class="swiper-slide relative h-[32.5rem]")
+          div(class="swiper-slide relative ~h-[26rem]/[32.5rem]")
             img(
               class="mx-auto h-full pb-14",
               data-lazy-img="assets/img/blueprint.webp",
               src="",
               alt=""
             )
-          div(class="swiper-slide relative h-[32.5rem]")
+          div(class="swiper-slide relative ~h-[26rem]/[32.5rem]")
             img(
               class="mx-auto h-full pb-14",
               data-lazy-img="assets/img/blueprint.webp",
@@ -77,15 +77,15 @@ mixin apartment-detail
           )
             button(
               type="button",
-              class="swiper-slide h-16 w-fit px-7 py-2 ~min-w-[8rem]/[11.625rem] focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+              class="swiper-slide w-fit px-7 py-2 ~text-sm/base ~h-14/16 ~min-w-[10rem]/[11.625rem] focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
             ) С размерами
             button(
               type="button",
-              class="swiper-slide h-16 w-fit px-7 py-2 ~min-w-[8rem]/[11.625rem] focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+              class="swiper-slide w-fit px-7 py-2 ~text-sm/base ~h-14/16 ~min-w-[10rem]/[11.625rem] focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
             ) С мебелью
             button(
               type="button",
-              class="swiper-slide h-16 w-fit px-7 py-2 ~min-w-[8rem]/[11.625rem] focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+              class="swiper-slide w-fit px-7 py-2 ~text-sm/base ~h-14/16 ~min-w-[10rem]/[11.625rem] focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
             ) На этаже
       div(
         class="col-span-full flex flex-col pt-5 md2:col-[span_9/-1] xl:col-[16/span_7]"

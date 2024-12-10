@@ -2,6 +2,7 @@ extends ../layouts/root
 
 include ../../components/breadcrumbs
 include ../../components/sections/apartment-detail
+include ../../components/sections/similar-apartments
 include ../../components/sections/contacts
 include ../../components/sections/contact-form
 
@@ -11,5 +12,6 @@ block content
       class="col-[main] ~mt-6/12"
     )
     +apartment-detail(class="!~mt-8/20")
+    +similar-apartments
     +contacts
     +contact-form
