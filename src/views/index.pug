@@ -8,13 +8,13 @@ include ../components/sections/contacts
 include ../components/sections/contact-form
 
 block content
-  main(class="col-span-full grid grid-cols-subgrid space-y-[10rem]")
+  main(class="col-span-full grid grid-cols-subgrid ~space-y-24/40")
     +projects-slider
     +short-about("Нам доверяют строить будущее!", "Мы &mdash;&mdash; компания &laquo;Депо&raquo;, строим жилые дома и&nbsp;коммерческие помещения в&nbsp;Барнауле. Наш приоритет&nbsp;&mdash; учитывать потребности клиентов и&nbsp;создавать объекты, которые им&nbsp;действительно нужны.")(
-      class="!mt-[7.5rem]"
+      class="!~mt-16/[7.5rem]"
     )
-    +projects(class="!mt-[7.5rem]")
+    +projects(class="!~mt-16/[7.5rem]")
     +about
     +news
     +contacts
-    +contact-form
+    +contact-form(class="!~mt-16/[7.5rem]")

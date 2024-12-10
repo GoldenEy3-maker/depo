@@ -8,7 +8,7 @@ include ../../components/sections/contacts
 include ../../components/sections/contact-form
 
 block content
-  main(class="col-span-full grid grid-cols-subgrid space-y-[10rem]")
+  main(class="col-span-full grid grid-cols-subgrid ~space-y-24/40")
     +intro
     +short-about("Исследуем людей и&nbsp;их&nbsp;потребности, чтобы предложить не&nbsp;просто коробку", "&laquo;Депо&raquo;&nbsp;&mdash; это команда профессионалов, нацеленных на&nbsp;создание качественного жилья. Наш приоритет&nbsp;&mdash; строительство современных многоэтажных домов, которые будут служить вам долгие годы. Мы&nbsp;уделяем особое внимание качеству материалов и&nbsp;выполняемых работ, чтобы обеспечить комфорт и&nbsp;безопасность наших клиентов. Доверьтесь нам, и&nbsp;мы&nbsp;построим дом вашей мечты.")(
       class="!mt-[5rem]"
@@ -16,4 +16,4 @@ block content
     +about(true)(class="!mt-[3.5rem]")
     +team
     +contacts
-    +contact-form
+    +contact-form(class="!~mt-16/[7.5rem]")

@@ -11,9 +11,9 @@ block content
       class="col-[main] ~mt-6/12"
     )
     h1(class="col-[main] text-h1 text-brand ~mt-8/20") Пора выбрать квартиру
-    div(class="@container col-[main] ~mt-8/20")
+    div(class="col-[main] ~mt-8/20 @container")
       form(action="/", class="", method="get", class="flex flex-wrap items-end gap-x-14 gap-y-6")
-        +range-slider({label: "Площадь помещения, м²", id: "area-range", step: 1, min: 23, max: 123, fields: [{placeholder: "от 23", name: "area-min"}, {placeholder: "от 123", name: "area-max"}]})(
+        +range-slider({label: "Площадь помещения, м²", id: "area-range", step: 1, min: 23, max: 123, fields: [{placeholder: "от 23", name: "area-min" }, {placeholder: "от 123", name: "area-max"}]})(
           class="basis-60"
         )
         +range-slider({label: "Стоимость, млн. руб.", id: "price-range", step: 0.1, min: 2.3, max: 12.3, fields: [{placeholder: "от 2,3", name: "price-min"}, {placeholder: "от 12,3", name: "price-max"}]})(
@@ -52,7 +52,7 @@ block content
               )
           span Избранное
       div(
-        class="sm:@[85rem]:grid-cols-[repeat(auto-fill,minmax(28rem,1fr))] grid grid-cols-1 border-l border-t border-muted ~mt-4/7 sm:grid-cols-[repeat(auto-fill,minmax(22.5rem,1fr))]"
+        class="grid grid-cols-1 border-l border-t border-muted ~mt-4/7 sm:grid-cols-[repeat(auto-fill,minmax(22.5rem,1fr))] sm:@[85rem]:grid-cols-[repeat(auto-fill,minmax(28rem,1fr))]"
       )
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})
         +apartments-item({img: 'assets/img/blueprint.webp', type: "Студия", area: "50 м²", price: "3 934 875 ₽"})

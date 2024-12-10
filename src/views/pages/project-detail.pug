@@ -10,13 +10,13 @@ include ../../components/sections/contacts
 include ../../components/sections/contact-form
 
 block content
-  main(class="col-span-full grid grid-cols-subgrid space-y-[10rem]")
+  main(class="col-span-full grid grid-cols-subgrid ~space-y-24/40")
     +project-slider
-    +project-about(class="!mt-[7.5rem]")
+    +project-about(class="!~mt-16/[7.5rem]")
     +project-features-slider
     +project-blueprints
     +project-facilities
     +project-construction-progress-slider
     +project-payment-methods
     +contacts
-    +contact-form
+    +contact-form(class="!~mt-16/[7.5rem]")
