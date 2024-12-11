@@ -43,4 +43,8 @@ export const SelectorMap = {
 
   BurgerTrigger: "[data-burger-trigger]",
   Burger: "[data-burger]",
+
+  ApartmentItem: "[data-apartment-item]",
+  FavoriteAction: "[data-favorite-action]",
+  FavoritesSort: "[data-favorites-sort]",
 } as const;

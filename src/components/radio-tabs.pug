@@ -13,5 +13,5 @@ mixin radio-tabs(opts)
           )
           label(
             for=option.id,
-            class="flex h-14 cursor-pointer items-center justify-center peer-checked:bg-primary peer-checked:text-white peer-focus-visible:ring peer-focus-visible:ring-primary"
+            class="flex h-14 cursor-pointer items-center justify-center transition-all duration-300 hover:bg-muted hover:text-text-foreground peer-checked:bg-primary peer-checked:text-text-foreground peer-focus-visible:ring peer-focus-visible:ring-primary"
           )!= option.label

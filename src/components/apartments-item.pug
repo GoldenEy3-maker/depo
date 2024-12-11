@@ -1,9 +1,15 @@
 mixin apartments-item(opts)
-  article(class="relative border-b border-r border-muted px-2")&attributes(attributes)
+  article(
+    class="relative border-b border-r border-muted px-2",
+    data-apartment-item=opts.id
+  )&attributes(attributes)
     a(href="apartments-detail.html", class="absolute inset-0 z-10")
     div(class="relative ~h-[18.25rem]/[21.25rem]")
       button(
-        class="button button--ghost button--icon-md absolute z-10 rounded-full text-muted ~top-6/7 ~right-8/10 ~h-9/11 ~w-9/11 hover:!bg-muted-foreground/50"
+        type="button",
+        class="button button--ghost button--icon-md group absolute z-10 rounded-full text-muted ~top-6/7 ~right-8/10 ~h-9/11 ~w-9/11 hover:!bg-muted-foreground/50",
+        data-favorite-action="",
+        aria-current="false"
       )
         span(class="~h-4/6 ~w-[0.875rem]/[1.125rem]")
           svg(
@@ -14,6 +20,7 @@ mixin apartments-item(opts)
             xmlns="http://www.w3.org/2000/svg"
           )
             path(
+              class="group-aria-[current=true]:fill-current",
               d="M8.88677 18.9875L1 22.466V3C1 1.89543 1.89543 1 3 1H15C16.1046 1 17 1.89543 17 3V22.4244L9.71602 18.9976L9.3037 18.8036L8.88677 18.9875Z",
               fill="none",
               stroke="currentColor",

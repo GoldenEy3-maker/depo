@@ -8,6 +8,7 @@ import { initRangeSlider } from "./range-slider";
 import { initCustomSelect } from "./custom-select";
 import { initDialog } from "./dialogs";
 import { initBurger } from "./burger";
+import { initFavorites } from "./favorites";
 
 initLazyLoading();
 
@@ -122,5 +123,6 @@ initRangeSlider();
 initCustomSelect();
 initDialog();
 initBurger();
+initFavorites();
 
 document.addEventListener("submit", handleSubmitForm);
