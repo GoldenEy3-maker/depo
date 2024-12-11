@@ -1,0 +1,79 @@
+extends ../layouts/root
+
+include ../../components/breadcrumbs
+include ../../components/sections/contact-form
+
+block content
+  main(class="col-span-full grid grid-cols-subgrid space-y-20")
+    +breadcrumbs([{href: "index.html", label: "Главная"}], "Новости")(
+      class="col-[main] ~mt-6/12"
+    )
+    section(class="col-span-full !~mt-8/20 @container sm:col-[main]")
+      h1(class="text-h1 text-brand") Новости и акции
+      div(
+        class="grid grid-cols-1 gap-5 ~mt-8/12 sm:grid-cols-[repeat(auto-fill,minmax(21rem,1fr))] sm:@[85rem]:grid-cols-[repeat(auto-fill,minmax(27.5rem,1fr))]"
+      )
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+        a(
+          href="news-detail.html",
+          class="flex flex-col bg-muted-foreground py-8 transition-all duration-300 ~min-h-[12.5rem]/[25rem] ~px-4/10 hover:bg-primary hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        )
+          time(datetime="2024-02-28T08:00:00.000Z", class="mb-2 text-basicS text-muted") 28 февраля, 2024
+          h3(class="text-h3") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+          p(class="mt-auto pt-6 text-muted ~text-basicS/base") Не мы такие. Жизнь такая.
+    +contact-form
