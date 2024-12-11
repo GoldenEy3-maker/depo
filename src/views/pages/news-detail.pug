@@ -1,0 +1,32 @@
+extends ../layouts/root
+
+include ../../components/breadcrumbs
+include ../../components/sections/contact-form
+include ../../components/sections/facility-detail-examples
+
+block content
+  main(class="col-span-full grid grid-cols-subgrid space-y-20")
+    +breadcrumbs([{href: "index.html", label: "Главная"}, {href: "news.html", label: "Новости"}], "Цены на квартиры остаются большими. До свидания!")(
+      class="col-[main] ~mt-6/12"
+    )
+    section(class="col-[main] grid grid-cols-subgrid !~mt-8/20")
+      h1(class="col-[main] max-w-[65rem] text-h1 text-brand") Цены на&nbsp;квартиры остаются большими. До&nbsp;свидания!
+      time(datetime="2024-02-28", class="col-[main] mt-3 inline-block text-muted") 31&nbsp;февраля 2024
+      div(class="text-container col-span-full mt-9 sm:col-[span_18] md:col-[span_15]")
+        h2 Заголовок
+        p Коллеги, представляем вашему вниманию полный цикл сессий Ежегодной конференции Knight Frank 2022.
+        h3 Расписание сессий
+        ul
+          li Сессия 1. Общеэкономическая ситуация
+          li Сессия 2. Тенденции и прогнозы развития рынка складской логистики
+          li Сессия 3. Перспективы «логистики третьего поколения»
+          li Сессия 4. E-commerce vs классический ретейл. Кто основной драйвер рынка?
+          li Сессия 5. Промышленное строительство
+        h4 Спикеры
+        ol
+          li Ягодкин Помидорослав
+          li Травин Бананослав
+          li Директоров Крутослав
+          li Наследников Сынослав
+    +facility-detail-examples(class="!mt-9")
+    +contact-form

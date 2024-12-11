@@ -196,6 +196,43 @@
     margin-inline: auto
 
 @layer components
+  .text-container
+    @apply text-basicL
+    h2
+      @apply text-h2 text-brand
+      &:not(:first-child)
+        @apply mt-6
+    h3
+      @apply text-h3 text-brand
+      &:not(:first-child)
+        @apply mt-6
+    h4
+      @apply text-h4 text-brand
+      &:not(:first-child)
+        @apply mt-6
+    ul
+      list-style: square
+      & li + li
+        margin-top: 0.25em
+      li
+        min-height: 2em
+        margin-left: 2em
+        padding-left: 0.5em
+        &::marker
+          @apply text-secondary
+    ol
+      list-style: decimal
+      & li + li
+        margin-top: 0.25em
+      li
+        min-height: 2em
+        margin-left: 2em
+        padding-left: 0.5em
+        &::marker
+          @apply text-secondary
+    p:not(:first-child), ul:not(:first-child), ol:not(:first-child)
+      @apply mt-4
+
   .button
     display: inline-flex
     align-items: center
@@ -214,7 +251,7 @@
     &:focus-visible
       @apply ring ring-primary
 
-    &:hover
+    &:hover:not(:disabled)
       @apply bg-brand
 
     &--ghost
@@ -225,7 +262,7 @@
       background-color: transparent
       @apply border border-primary text-secondary
 
-      &:hover
+      &:hover:not(:disabled)
         @apply bg-secondary text-text-foreground border-secondary
 
     &--lg
