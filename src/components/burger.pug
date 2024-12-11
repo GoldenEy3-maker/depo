@@ -1,15 +1,79 @@
 mixin burger
   div(
-    class="fixed inset-x-0 top-0 z-40 h-svh bg-background pt-24 transition-all duration-300 aria-hidden:invisible aria-hidden:-translate-y-5 aria-hidden:opacity-0",
+    class="fixed inset-x-0 top-0 z-40 bg-background transition-all duration-300 aria-hidden:invisible aria-hidden:-translate-y-5 aria-hidden:opacity-0",
     aria-hidden="true",
     data-burger=""
   )
-    div(class="max-container main-container")
+    div(
+      class="max-container flex h-svh flex-col gap-8 overflow-auto pb-8 pt-28 ~px-4/12"
+    )
       nav(
-        class="col-[main/-1] flex max-h-[calc(100svh-6rem)] flex-col items-start gap-5 overflow-auto pb-4 text-h2 text-brand"
+        class="col-[main/-1] flex flex-col items-start gap-4 pb-4 text-h3 text-brand"
       )
         a(href="projects.html") Проекты
         a(href="apartments.html") Квартиры
         a(href="about.html") О застройщике
         a(href="news.html") Медиа
         a(href="contacts.html") Контакты
+      nav(
+        class="col-[main/-1] flex flex-col items-start gap-4 pb-4 text-h3 text-brand"
+      )
+        a(href="projects-detail.html") Дом на Кленова
+        a(href="projects-detail.html") Пентхауса на Вленова
+        a(href="projects-detail.html") Беломор канал
+        a(href="projects-detail.html") ЖК ЛУЧ
+      div(class="mt-auto text-lg text-brand")
+        a(
+          href="mailto:salo@depostroit.ru",
+          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+        ) salo@depostroit.ru
+        p(class="mt-4") Барнаул, ул. Кленова 123
+        div(class="mt-12 flex flex-wrap items-start gap-4")
+          a(
+            href="#",
+            target="_blank",
+            class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          )
+            svg(
+              width="22",
+              height="18",
+              viewbox="0 0 22 18",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg"
+            )
+              path(
+                d="M19.7589 0.158922C19.7589 0.158922 21.7569 -0.620217 21.5898 1.27183C21.5347 2.05097 21.0354 4.77822 20.6466 7.72763L19.3146 16.4653C19.3146 16.4653 19.2035 17.7454 18.2042 17.968C17.2055 18.1902 15.7069 17.1889 15.4292 16.9662C15.207 16.7991 11.2666 14.2945 9.87902 13.0705C9.49022 12.7362 9.04588 12.0687 9.93457 11.2896L15.7624 5.72398C16.4284 5.05542 17.0944 3.49714 14.3193 5.3897L6.54852 10.6765C6.54852 10.6765 5.66036 11.2335 3.99562 10.7326L0.387407 9.61917C0.387407 9.61917 -0.944588 8.78449 1.33112 7.9498C6.88178 5.33416 13.7089 2.66297 19.7584 0.158408",
+                fill="#002134"
+              )
+          a(
+            href="#",
+            target="_blank",
+            class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          )
+            svg(
+              width="22",
+              height="18",
+              viewbox="0 0 22 18",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg"
+            )
+              path(
+                d="M19.7589 0.158922C19.7589 0.158922 21.7569 -0.620217 21.5898 1.27183C21.5347 2.05097 21.0354 4.77822 20.6466 7.72763L19.3146 16.4653C19.3146 16.4653 19.2035 17.7454 18.2042 17.968C17.2055 18.1902 15.7069 17.1889 15.4292 16.9662C15.207 16.7991 11.2666 14.2945 9.87902 13.0705C9.49022 12.7362 9.04588 12.0687 9.93457 11.2896L15.7624 5.72398C16.4284 5.05542 17.0944 3.49714 14.3193 5.3897L6.54852 10.6765C6.54852 10.6765 5.66036 11.2335 3.99562 10.7326L0.387407 9.61917C0.387407 9.61917 -0.944588 8.78449 1.33112 7.9498C6.88178 5.33416 13.7089 2.66297 19.7584 0.158408",
+                fill="#002134"
+              )
+          a(
+            href="#",
+            target="_blank",
+            class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          )
+            svg(
+              width="22",
+              height="18",
+              viewbox="0 0 22 18",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg"
+            )
+              path(
+                d="M19.7589 0.158922C19.7589 0.158922 21.7569 -0.620217 21.5898 1.27183C21.5347 2.05097 21.0354 4.77822 20.6466 7.72763L19.3146 16.4653C19.3146 16.4653 19.2035 17.7454 18.2042 17.968C17.2055 18.1902 15.7069 17.1889 15.4292 16.9662C15.207 16.7991 11.2666 14.2945 9.87902 13.0705C9.49022 12.7362 9.04588 12.0687 9.93457 11.2896L15.7624 5.72398C16.4284 5.05542 17.0944 3.49714 14.3193 5.3897L6.54852 10.6765C6.54852 10.6765 5.66036 11.2335 3.99562 10.7326L0.387407 9.61917C0.387407 9.61917 -0.944588 8.78449 1.33112 7.9498C6.88178 5.33416 13.7089 2.66297 19.7584 0.158408",
+                fill="#002134"
+              )
