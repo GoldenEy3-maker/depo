@@ -9,19 +9,19 @@ mixin project-blueprints
         div(class="swiper-wrapper [&_.swiper-slide:not(:last-child)]:border-r-0")
           button(
             type="button",
-            class="swiper-slide w-[5rem] shrink-0 border border-secondary focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+            class="swiper-slide w-[5rem] shrink-0 border border-secondary transition-all duration-300 hover:bg-muted hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-text-foreground"
           ) С
           button(
             type="button",
-            class="swiper-slide w-[5rem] shrink-0 border border-secondary focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+            class="swiper-slide w-[5rem] shrink-0 border border-secondary transition-all duration-300 hover:bg-muted hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-text-foreground"
           ) 1К
           button(
             type="button",
-            class="swiper-slide w-[5rem] shrink-0 border border-secondary focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+            class="swiper-slide w-[5rem] shrink-0 border border-secondary transition-all duration-300 hover:bg-muted hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-text-foreground"
           ) 2К
           button(
             type="button",
-            class="swiper-slide w-[5rem] shrink-0 border border-secondary focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-white"
+            class="swiper-slide w-[5rem] shrink-0 border border-secondary transition-all duration-300 hover:bg-muted hover:text-text-foreground focus:outline-none focus-visible:ring focus-visible:ring-primary [&.swiper-slide-thumb-active]:border-brand [&.swiper-slide-thumb-active]:bg-brand [&.swiper-slide-thumb-active]:text-text-foreground"
           ) 3К
       div(
         class="swiper col-span-full mt-9 w-full",
@@ -52,7 +52,7 @@ mixin project-blueprints
                 div(class="absolute bottom-0 left-0 z-10 flex")
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16",
+                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted",
                     disabled=""
                   )
                     svg(
@@ -68,7 +68,7 @@ mixin project-blueprints
                       )
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16"
+                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted"
                   )
                     svg(
                       width="16",
@@ -130,7 +130,7 @@ mixin project-blueprints
                 div(class="absolute bottom-0 left-0 z-10 flex")
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16",
+                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted",
                     disabled=""
                   )
                     svg(
@@ -146,7 +146,7 @@ mixin project-blueprints
                       )
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16"
+                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted"
                   )
                     svg(
                       width="16",
@@ -208,7 +208,7 @@ mixin project-blueprints
                 div(class="absolute bottom-0 left-0 z-10 flex")
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16",
+                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted",
                     disabled=""
                   )
                     svg(
@@ -224,7 +224,7 @@ mixin project-blueprints
                       )
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16"
+                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted"
                   )
                     svg(
                       width="16",
@@ -286,7 +286,7 @@ mixin project-blueprints
                 div(class="absolute bottom-0 left-0 z-10 flex")
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16",
+                    class="button button--ghost button--icon-lg swiper-button-prev disabled:bg-transparent disabled:text-muted",
                     disabled=""
                   )
                     svg(
@@ -302,7 +302,7 @@ mixin project-blueprints
                       )
                   button(
                     type="button",
-                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted max-sm:h-16 max-sm:w-16"
+                    class="button button--ghost button--icon-lg swiper-button-next disabled:bg-transparent disabled:text-muted"
                   )
                     svg(
                       width="16",
