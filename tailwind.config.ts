@@ -64,6 +64,9 @@ export default {
           background: "#1D1D1B",
           foreground: "#E4E6EF",
         },
+        destructive: {
+          DEFAULT: "#CA1E1E",
+        },
       },
       keyframes: {
         floatingImage: {
