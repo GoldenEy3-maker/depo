@@ -91,12 +91,10 @@ export function handleSubmitForm(event: SubmitEvent) {
   //   `[data-form-success=${target.id}]`,
   // );
 
-  // const unknowInvalidResponse = target.getAttribute(
-  //   "data-unknown-invalid-response",
-  // );
-  // const responseEl = target.querySelector<HTMLParagraphElement>(
-  //   "[data-form-response]",
-  // );
+  const unknowErrorMessage = target.getAttribute("data-unknown-error-message");
+  const responseContainer = target.querySelector<HTMLParagraphElement>(
+    "[data-form-response]",
+  );
 
   if (!isValid) return;
 
@@ -107,10 +105,10 @@ export function handleSubmitForm(event: SubmitEvent) {
       true;
   }
 
-  // if (responseEl) {
-  //   responseEl.textContent = "";
-  //   responseEl.ariaHidden = "true";
-  // }
+  if (responseContainer) {
+    responseContainer.textContent = "";
+    responseContainer.ariaHidden = "true";
+  }
 
   fetch(target.action, {
     method: target.method,
@@ -124,11 +122,16 @@ export function handleSubmitForm(event: SubmitEvent) {
           response.status,
           response.statusText,
         );
-        // if (responseEl) {
-        //   responseEl.textContent =
-        //     unknowInvalidResponse ?? "Что-то пошло не так!";
-        //   responseEl.ariaHidden = "false";
-        // }
+        if (responseContainer) {
+          responseContainer.textContent =
+            unknowErrorMessage ?? "Что-то пошло не так!";
+          responseContainer.ariaHidden = "false";
+
+          setTimeout(() => {
+            responseContainer.textContent = "";
+            responseContainer.ariaHidden = "true";
+          }, 2000);
+        }
         return;
       }
 
@@ -147,10 +150,14 @@ export function handleSubmitForm(event: SubmitEvent) {
       target.reset();
     })
     .catch((error) => {
-      // if (responseEl) {
-      //   responseEl.textContent = error;
-      //   responseEl.ariaHidden = "false";
-      // }
+      if (responseContainer) {
+        responseContainer.textContent = error;
+        responseContainer.ariaHidden = "false";
+        setTimeout(() => {
+          responseContainer.textContent = "";
+          responseContainer.ariaHidden = "true";
+        }, 2000);
+      }
       console.error(error);
     })
     .finally(() => {
