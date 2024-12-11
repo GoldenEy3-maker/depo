@@ -18,7 +18,7 @@ mixin project-slider
           h4(class="text-h4") ул. Кленова 123
           span(class="text-muted") г. Барнаул
       footer(class="col-span-full ~pt-[2rem]/[3.25rem]")
-        a(href="#", class="button button--lg w-full max-sm:h-16") Выбрать квартиру
+        a(href="#", class="button button--lg w-full") Выбрать квартиру
     div(
       class="swiper relative col-span-full grid min-h-[30rem] w-full grid-cols-subgrid overflow-hidden bg-muted md2:col-[span_17] md2:min-h-0 [&>*]:row-start-1",
       data-project-slider=""
@@ -46,10 +46,7 @@ mixin project-slider
             alt=""
           )
       div(class="z-10 col-span-full flex items-center justify-end self-end")
-        button(
-          type="button",
-          class="swiper-button-prev button button--icon-lg max-sm:h-16 max-sm:w-16"
-        )
+        button(type="button", class="swiper-button-prev button button--icon-lg")
           svg(
             width="16",
             height="26",
@@ -61,10 +58,7 @@ mixin project-slider
               d="M9.53674e-07 10.4591V15.5409L16 26V21.0955L3.28572 13L16 4.90455V0L9.53674e-07 10.4591Z",
               fill="currentColor"
             )
-        button(
-          type="button",
-          class="swiper-button-next button button--icon-lg max-sm:h-16 max-sm:w-16"
-        )
+        button(type="button", class="swiper-button-next button button--icon-lg")
           svg(
             width="16",
             height="26",
