@@ -21,7 +21,7 @@ mixin contact-form
             name="name",
             pattern="[А-ЯЁа-яё ]{2,}",
             data-pattern-text="Введите имя минимум из 2 букв кириллицей",
-            class="peer h-16 w-full rounded-none border border-muted-background px-6 placeholder:text-muted-background focus:outline-none"
+            class="peer w-full rounded-none border border-muted-background px-6 ~h-14/16 placeholder:text-muted-background focus:outline-none"
           )
           p(
             class="text-red-500 peer-aria-[invalid=true]:mt-2",
@@ -35,7 +35,7 @@ mixin contact-form
             name="tel",
             pattern="\\+7\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{2}-[0-9]{2}",
             data-pattern-text="Перепроверьте правильность номера телефона, мы позвоним на него",
-            class="peer h-16 w-full rounded-none border border-muted-background px-6 placeholder:text-muted-background focus:outline-none"
+            class="peer w-full rounded-none border border-muted-background px-6 ~h-14/16 placeholder:text-muted-background focus:outline-none"
           )
           p(
             class="text-red-500 peer-aria-[invalid=true]:mt-2",
