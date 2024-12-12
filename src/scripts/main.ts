@@ -9,6 +9,7 @@ import { initCustomSelect } from "./custom-select";
 import { initDialog } from "./dialogs";
 import { initBurger } from "./burger";
 import { initFavorites } from "./favorites";
+import initGallery from "./gallery";
 
 initLazyLoading();
 
@@ -124,5 +125,6 @@ initCustomSelect();
 initDialog();
 initBurger();
 initFavorites();
+initGallery();
 
 document.addEventListener("submit", handleSubmitForm);

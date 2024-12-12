@@ -46,6 +46,7 @@
     "zod": "^3.23.8"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "@tailwindcss/container-queries": "^0.1.1",
     "choices.js": "^11.0.2",
     "gulp-pug": "^5.0.0",

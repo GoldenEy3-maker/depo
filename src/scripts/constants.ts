@@ -47,4 +47,6 @@ export const SelectorMap = {
   ApartmentItem: "[data-apartment-item]",
   FavoriteAction: "[data-favorite-action]",
   FavoritesSort: "[data-favorites-sort]",
+
+  Gallery: "[data-gallery]",
 } as const;
