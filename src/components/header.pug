@@ -33,7 +33,7 @@ mixin header
           )
       button(
         type="button",
-        class="group relative col-start-[14] h-[2.25rem] w-[2.3125rem] transition-all duration-300 before:absolute before:inset-x-0 before:bottom-2 before:h-[2px] before:-translate-y-1/2 before:bg-black before:transition-all before:duration-300 after:absolute after:inset-x-0 after:top-[0.625rem] after:h-[2px] after:-translate-y-1/2 after:bg-black after:transition-all after:duration-300 focus:outline-none focus-visible:ring focus-visible:ring-primary aria-[current=true]:rotate-180 aria-[current=true]:before:bottom-4 aria-[current=true]:before:-rotate-45 aria-[current=true]:after:top-[1.125rem] aria-[current=true]:after:rotate-45 sm:col-start-[13] md2:hidden",
+        class="group relative col-end-[main] h-[2.25rem] w-[2.3125rem] transition-all duration-300 before:absolute before:inset-x-0 before:bottom-2 before:h-[2px] before:-translate-y-1/2 before:bg-black before:transition-all before:duration-300 after:absolute after:inset-x-0 after:top-[0.625rem] after:h-[2px] after:-translate-y-1/2 after:bg-black after:transition-all after:duration-300 focus:outline-none focus-visible:ring focus-visible:ring-primary aria-[current=true]:rotate-180 aria-[current=true]:before:bottom-4 aria-[current=true]:before:-rotate-45 aria-[current=true]:after:top-[1.125rem] aria-[current=true]:after:rotate-45 md2:hidden",
         data-burger-trigger=""
       )
         span(
@@ -44,28 +44,30 @@ mixin header
       )
         a(
           href="projects.html",
-          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          class="underline-offset-8 transition-all duration-300 hover:text-brand hover:underline focus:outline-none focus-visible:ring focus-visible:ring-primary"
         ) Проекты
         a(
           href="apartments.html",
-          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          class="underline-offset-8 transition-all duration-300 hover:text-brand hover:underline focus:outline-none focus-visible:ring focus-visible:ring-primary"
         ) Квартиры
         a(
           href="about.html",
-          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          class="underline-offset-8 transition-all duration-300 hover:text-brand hover:underline focus:outline-none focus-visible:ring focus-visible:ring-primary"
         ) О застройщике
         a(
           href="news.html",
-          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          class="underline-offset-8 transition-all duration-300 hover:text-brand hover:underline focus:outline-none focus-visible:ring focus-visible:ring-primary"
         ) Медиа
         a(
           href="contacts.html",
-          class="focus:outline-none focus-visible:ring focus-visible:ring-primary"
+          class="underline-offset-8 transition-all duration-300 hover:text-brand hover:underline focus:outline-none focus-visible:ring focus-visible:ring-primary"
         ) Контакты
-      div(class="col-end-[main] text-right lg:col-[span_5/main]")
+      div(
+        class="-col-end-[4] row-start-1 inline-flex justify-end text-right md2:col-end-[main] lg:col-[span_5/main]"
+      )
         a(
           href="tel:+78000000000",
-          class="inline-flex text-lg font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary lg:text-secondary"
+          class="inline-flex text-lg font-medium underline-offset-8 focus:outline-none focus-visible:ring focus-visible:ring-primary lg:text-secondary lg:hover:underline"
         ) 
           span(class="max-lg:hidden") +7 800 000 00 00
           span(class="lg:hidden")

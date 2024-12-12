@@ -50,7 +50,7 @@ export default {
           DEFAULT: "#002134",
         },
         primary: {
-          DEFAULT: "#013553",
+          DEFAULT: "#054360",
         },
         secondary: {
           DEFAULT: "#1F5372",
